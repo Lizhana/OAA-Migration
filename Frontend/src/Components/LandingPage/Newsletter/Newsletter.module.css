@@ -1,0 +1,133 @@
+/* Estilos para el body cuando se muestra la ventana modal */
+body.modalOpen {
+  overflow: hidden;
+}
+
+/* Estilos para la ventana modal */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para el contenido de la ventana modal */
+.modalContent {
+  position: relative;
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 5px;
+  height: 650px;
+  width: 800px;
+}
+.logo__container {
+  width: 460px;
+  margin: 0 auto;
+}
+.title {
+  margin: 20px 0;
+  text-align: center;
+}
+.text {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Estilos para el botón de cierre */
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #023047;
+}
+
+.close:hover,
+.close:focus {
+  color: #4361ee;
+  text-decoration: none;
+  cursor: pointer;
+}
+.form {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+form {
+  display: block;
+  width: 400px;
+}
+form input {
+  height: 36px;
+  width: 300px;
+  padding-left: 20px;
+  font-size: 15px;
+  color: #111;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  transition: all, 0.3s;
+}
+form button {
+  width: 50%;
+  cursor: pointer;
+}
+.siteBtn {
+  border: none;
+  background: rgba(255, 215, 35);
+  color: #111;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 12px 40px 10px;
+}
+.siteBtnDesaprobated {
+  cursor: default;
+  border: none;
+  background: #e9ecef;
+  color: #adb5bd;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 12px 40px 10px;
+}
+.danger {
+  color: red;
+  position: absolute;
+  margin: -30px 0 0 50px;
+}
+.messageSubmitted {
+  position: absolute;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 5px 0 0 0;
+  color: green;
+}
+
+
+.contact {
+  padding: 0 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px 0 0;
+}
+.footer__iconContact {
+  font-size: 15px;
+  margin: 0 5px 0 0;
+}
+
+/* .contact {
+} */

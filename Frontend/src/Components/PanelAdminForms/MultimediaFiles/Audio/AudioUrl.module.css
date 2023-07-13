@@ -1,0 +1,57 @@
+@import "../../../../variables.css";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  margin: 1rem auto 0;
+}
+.container ol {
+  cursor: default;
+  padding: 0 2rem;
+  width: 41.5rem;
+}
+.instructions {
+  align-self: flex-start;
+  padding-left: 1.25rem;
+}
+.audio-container {
+  margin: 2rem 0 1.5rem;
+}
+.audio {
+  width: 35rem;
+}
+
+.form-container {
+  width: 35rem;
+}
+
+.delete-btn,
+.check-btn {
+  margin-left: 1rem;
+  background: none;
+  cursor: pointer;
+}
+.delete-btn {
+  margin-left: 0.5rem;
+}
+.form-container button {
+  padding-left: 1rem;
+  background: none;
+  cursor: pointer;
+}
+@media (pointer: fine) {
+  .form-container button:hover {
+    transform: scale(1.15);
+  }
+  .delete-btn:hover,
+  .check-btn:hover {
+    transform: scale(1.15);
+  }
+}
+
+.buttons-container {
+  display: flex;
+}

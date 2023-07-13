@@ -1,0 +1,129 @@
+.container {
+  margin: 0 auto;
+  padding: 1.5rem;
+  width: max(55rem, 60vw);
+}
+
+.actions .delete-button {
+  font-size: 1rem;
+  padding: 0.35rem 1rem;
+  margin: 0rem auto;
+}
+
+.form {
+  position: relative;
+}
+
+.button {
+  background: none;
+  cursor: pointer;
+}
+
+.clear-button {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0.65rem;
+}
+@media (pointer: fine) {
+  .button:hover {
+    transform: scale(1.15);
+  }
+}
+/* SECTION */
+.data-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1rem;
+  padding-bottom: 0;
+  width: 23.5ch;
+  height: 15ch;
+  border-radius: var(--border-radius);
+  background-color: var(--light-blue);
+}
+
+.value {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.text {
+  font-size: 0.8rem;
+  color: var(--blue);
+}
+/* FORM */
+.form {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.form input {
+  margin: 0.5rem 0;
+}
+
+/* TABLE */
+.table {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+}
+.thead {
+  background-color: var(--blue);
+}
+.thead th {
+  position: relative;
+  padding: 0.5rem 0;
+  color: var(--white);
+  cursor: default;
+}
+
+.tbody td {
+  padding: 0.75rem;
+  cursor: default;
+}
+
+.tbody tr:nth-child(even) {
+  background-color: #1d64941c;
+}
+
+.arrow {
+  position: absolute;
+  top: 0.5rem;
+}
+
+.id {
+  max-width: 15vw;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.date {
+  max-width: 8vw;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.name {
+  max-width: 12vw;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.email {
+  max-width: 22vw;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  padding: 0;
+  width: 13ch;
+}

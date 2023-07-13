@@ -1,0 +1,51 @@
+.metrics {
+    width: 100%;
+    padding: 50px 0;
+}
+.metrics h1 {
+    text-align: center;
+    margin: 0 0 20px 0; 
+}
+.containerMetrics {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 15px;
+}
+.metricLeft {
+    height: 100px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: #2a9d8f;
+    color: white;
+}
+.metric {
+    height: 100px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #2a9d8f;
+    color: white;
+}
+.metricRight {
+    height: 100px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: #2a9d8f;
+    color: white;
+}

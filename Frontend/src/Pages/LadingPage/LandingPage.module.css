@@ -1,0 +1,9 @@
+@import '../../variables.css';
+
+/*
+!PROHIBIDO USAR UNIDADES DE MEDIDA EN PX --> ATT_ DARI
+*/
+
+div {
+    color: var(--blue);
+}

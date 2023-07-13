@@ -1,0 +1,135 @@
+@import url("../../variables.css");
+
+.divContainerOne {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.container-foro {
+   display: flex;
+  flex-direction: column;
+   align-items: center;
+}
+
+.titlePrimer {
+  margin-top: 1rem;
+  width: 50%;
+  padding: 1rem;
+  animation: pulse 5s infinite;
+  box-shadow: 3px 2px 8px rgba(22, 157, 24, 0.638);
+}
+
+.divContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.texto-foro {
+  text-align: justify;
+  width: 80%;
+  max-width: 600px;
+  margin: 0;
+  
+
+}
+.ptextoforo {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.imageForum {
+  width: 50%;
+  max-height: 200px;
+  padding-bottom: 1rem;
+  float:left;
+  padding: 0.2rem;
+}
+
+.titleF {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  position: static;
+}
+
+.divTwo {
+  margin: 2rem 0 2rem;
+}
+
+.titleTwo {
+  margin-top: 0;
+  text-align:left;
+}
+
+.texto-foroTwo {
+  text-align: justify;
+  margin-top: 1.5rem;
+  max-width: 600px;
+  font-size: 1rem;
+}
+
+
+.cardContainers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  
+}
+
+.h2cardContainers  {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  animation: pulse 3s infinite;
+  box-shadow: 3px 2px 8px rgba(22, 157, 24, 0.638);
+}
+
+.divContainerC {
+  display: flex;
+  align-items: center;
+  margin: .5rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.divSecondCard{
+  display: flex;
+  flex-direction: row;
+}
+.divSecondCard:hover{
+  background-color: var(--blue-transparent);
+}
+
+.h5cardContainers  {
+  font-size: 0.8rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.imgdivContainerC  {
+  margin-left: 1rem;
+  height: 80px;
+  max-height: 80px;
+  width: 4rem;
+  object-fit:contain;
+}
+.textcardContainers {
+  font-size: 0.8rem;
+}
+
+.buttoncardContainers  {
+  cursor: pointer;
+}

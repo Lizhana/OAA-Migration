@@ -1,0 +1,62 @@
+@import url('../../variables.css');
+
+.containerSocial {
+  width: 80%;
+  margin: 0 auto;
+  text-align: justify;
+  padding: 0;
+  overflow: visible;
+}
+
+.titleSocial {
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem 0;
+  animation: pulse 5s infinite;
+  box-shadow: 3px 2px 8px rgba(22, 157, 24, 0.638);
+}
+
+.containerSec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0 2rem;
+}
+
+.imageSocial {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.containerSecp {
+  flex: 1;
+  font-size: 1rem;
+  margin: 1rem;
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .containerSocial {
+    width: 80%;
+    max-width: 800px;
+  }
+
+  .containerSec {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .imageSocial {
+    width: 50%;
+    max-height: 500px;
+    margin-right: 2rem;
+  }
+
+  .containerSecp {
+    font-size: 1.5rem;
+    margin: 1rem;
+    text-align: justify;
+  }
+}

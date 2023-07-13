@@ -1,0 +1,66 @@
+@import "../../variables.css";
+
+/* LIGHT THEME */
+.paged {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+.paged > * {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--blue);
+  background: none;
+}
+.button {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  background-color: #1d64941c;
+}
+.button-prev {
+  border-radius: 50% 0 0 50%;
+  border: 0.15rem solid #1d649434;
+  border-right: none;
+}
+.button-next {
+  border-radius: 0 50% 50% 0;
+  border: 0.15rem solid #1d649434;
+  border-left: none;
+}
+.text-container {
+  display: flex;
+  padding: 0.53rem 0;
+  padding-bottom: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 0.15rem solid #1d649434;
+}
+.text {
+  cursor: default;
+  padding-right: 1rem;
+}
+
+.number-input {
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0;
+  padding-top: 0.3rem;
+  text-align: center;
+}
+
+.paged input[type="number"]::-webkit-inner-spin-button,
+.paged input[type="number"]::-webkit-outer-spin-button {
+  display: none;
+}
+.number-input:focus,
+.number-input:active {
+  outline: none;
+}
+@media (pointer: fine) {
+  .button:hover {
+    color: var(--red);
+  }
+}

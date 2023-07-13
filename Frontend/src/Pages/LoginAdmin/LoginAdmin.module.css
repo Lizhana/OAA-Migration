@@ -1,0 +1,52 @@
+@import "../../variables.css";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--blue);
+}
+
+.login-container {
+  width: 90vw;
+  height: auto;
+  padding-bottom: 2rem;
+  border-radius: var(--border-radius);
+  background-color: var(--green);
+}
+
+.logo {
+  position: relative;
+  top: 0;
+  left: 50%;
+  margin: 1.5rem 0;
+  width: 80%;
+  transform: translateX(-50%);
+}
+
+.form {
+  padding: 0 2.5rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.password {
+  display: block;
+  align-self: flex-end;
+  color: var(--blue);
+  text-decoration: underline;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background: none;
+}
+
+@media screen and (min-width: 40em) {
+  .login-container {
+    width: min(60vw, 65vh);
+  }
+}

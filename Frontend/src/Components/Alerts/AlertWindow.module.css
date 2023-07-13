@@ -1,0 +1,81 @@
+@import "../../variables.css";
+
+@keyframes animationShow {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes animationHidden {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.container {
+  position: fixed;
+  z-index: 900;
+  right: -90vw;
+  top: 1rem;
+  width: 90vw;
+  height: auto;
+  cursor: default;
+}
+
+.error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+  border-left: 0.4rem solid red;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+  backdrop-filter: blur(2rem);
+  background-color: #fac2c5d0;
+}
+
+.error-text {
+  color: red;
+  padding-left: 0.5rem;
+  width: 96%;
+}
+
+.success {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+  border-left: 0.4rem solid green;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+  backdrop-filter: blur(2rem);
+  background-color: #e9fdd4d2;
+}
+
+.success-text {
+  color: green;
+  padding-left: 0.5rem;
+  width: 96%;
+}
+
+.alert-hidden {
+  animation: animationHidden 1s ease forwards;
+  transition: transform 1s;
+}
+.alert-show {
+  animation: animationShow 1s ease forwards;
+  transition: transform 1s;
+}
+
+@media screen and (min-width: 60em) {
+  .container {
+    right: -50vw;
+    width: 50vw;
+    font-size: 1.5rem;
+  }
+}

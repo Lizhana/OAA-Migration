@@ -1,0 +1,27 @@
+.aboutUs {
+    width: 100%;
+}
+.container__aboutUs {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+.titleAboutUs {
+    border-left: 5px solid #2a9d8f;
+}
+.titleAboutUs h1 {
+    margin: 0 5px;
+}
+.lineAboutUs {
+    margin: 5px 0;
+    border-bottom: 1px solid #adb5bd;
+}
+.emailContact {
+    margin: 10px 0;
+}
+.paragraph h2 {
+    margin: 20px 0;
+}
+.paragraph p {
+    margin: 10px 0;
+}

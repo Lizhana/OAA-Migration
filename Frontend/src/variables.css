@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+:root {
+  /* Font: */
+  --font-family: Sofia Sans Condesed, "Segoe UI", sans-serif;
+  /* Colors: */
+  --blue: #0c4b76;
+  --blue-transparent: #0c4c762b;
+  --black: #141414;
+  --gray: #6f6f6f;
+  --green: #faffdd;
+  --dark-green: #8ab234;
+  --yellow: #fad655;
+  --white: #fbfcf9;
+  --red: #d11e26;
+  --orange: #e07335;
+  --light-blue: #bbe7fe;
+  /* Border radius: */
+  --border-radius: 0.25rem;
+  /* Icons filters: */
+  --white-filter: invert(95%) sepia(21%) saturate(179%) hue-rotate(0deg)
+    brightness(110%) contrast(98%);
+  --blue-filter: invert(25%) sepia(19%) saturate(3679%) hue-rotate(173deg)
+    brightness(86%) contrast(94%);
+
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

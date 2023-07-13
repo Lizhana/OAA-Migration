@@ -1,0 +1,71 @@
+.presentationIcons {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+.container {
+    height: 17rem;
+    background: #b8c0ff;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.containerlinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.containerlinks h3 {
+    color: white;
+    font-size: 30px;
+}
+
+.subscribe {
+    color: white;
+    font-size: 30px;
+}
+.containerIcons {
+    overflow: hidden;
+    border-radius: 50%;
+    background: #006d77;
+    padding: 25px;
+    transition: 300ms all ease;
+}
+.containerIcons:hover {
+    transform: scale(1.1);
+}
+.containerIconsDone {
+    overflow: hidden;
+    border-radius: 50%;
+    background: #e63946;
+    padding: 25px;
+    transition: 300ms all ease;
+}
+.containerIconsDone:hover {
+    transform: scale(1.1);
+}
+.icons {
+    font-size: 100px;
+    color: white;
+}
+.modal {
+    transition: 300ms all ease;
+}
+.modal:hover {
+    transform: scale(1.1);
+}
+.modalButton {
+    padding: 30px;
+    border-radius: 50%;
+    background: #006d77;
+}
+.image {
+    width: 100px;
+}
+.imageNews {
+    width: 90px;
+}

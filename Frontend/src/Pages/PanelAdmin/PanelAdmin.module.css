@@ -1,0 +1,101 @@
+@import "../../variables.css";
+
+.container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: repeat(3, max-content);
+  grid-template-areas:
+    "header header"
+    "navbar main"
+    "footer footer";
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--green);
+}
+
+.header img {
+  width: 8rem;
+}
+
+.header div {
+  display: flex;
+  align-items: center;
+}
+
+.header h1 {
+  color: var(--blue);
+  padding-left: 1rem;
+  text-align: center;
+  font-size: 1.7rem;
+  width: 14ch;
+  cursor: default;
+}
+
+.header h3 {
+  color: var(--blue);
+  cursor: default;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-area: navbar;
+  padding: 0.75rem 1.25rem;
+  height: calc(100vh - 12.2rem);
+  background-color: var(--blue);
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--green);
+  padding: 1.5rem;
+}
+
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.ul-sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: min(80%, 25rem);
+}
+
+.ul-sections > li {
+  color: var(--white);
+  list-style: none;
+  cursor: pointer;
+}
+
+.ul-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: min(15%, 10rem);
+}
+
+.ul-actions > li {
+  list-style: none;
+}
+
+.ul-actions button {
+  font-size: 1rem;
+  color: var(--white);
+  background: none;
+  cursor: pointer;
+}

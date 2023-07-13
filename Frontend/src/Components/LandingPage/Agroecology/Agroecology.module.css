@@ -1,0 +1,32 @@
+.agroecology {
+  width: 1000px;
+  position: relative;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.agroecology p {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+/*----------Landing----------*/
+.landing {
+  height: 333px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1;
+}
+.landing p {
+  padding: 10px 20px;
+  background: #219ebc;
+  margin: 30px;
+  color: #f1faee;
+  font-size: 20px;
+}
+.images {
+  height: 333px;
+  width: 1000px;
+}

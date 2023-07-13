@@ -1,0 +1,7 @@
+@import "../../variables.css";
+
+.form {
+  display: inline-block;
+  padding: 1.5rem;
+  background-color: var(--green);
+}

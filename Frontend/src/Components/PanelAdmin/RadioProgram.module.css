@@ -1,0 +1,112 @@
+.container {
+  margin: 0 auto;
+  padding: 1.5rem;
+  width: max(55rem, 60vw);
+}
+
+.actions .delete-button {
+  font-size: 1rem;
+  padding: 0.35rem 1rem;
+  margin: 0rem auto;
+}
+
+.form {
+  position: relative;
+}
+
+.button {
+  background: none;
+  cursor: pointer;
+}
+.button-left {
+  margin-right: 0.4rem;
+}
+.button-right {
+  margin-left: 0.4rem;
+}
+.clear-button {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0.9rem;
+}
+@media (pointer: fine) {
+  .button:hover {
+    transform: scale(1.15);
+  }
+}
+/* FORM */
+.form {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form label {
+  margin: 0;
+}
+.form .create-button {
+  width: 15rem;
+}
+.select-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 17rem;
+}
+
+.select {
+  font-size: 0.95rem;
+  background: none;
+  color: var(--blue);
+}
+
+/* TABLE */
+.table {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+}
+.thead {
+  background-color: var(--blue);
+}
+.thead th {
+  position: relative;
+  padding: 0.5rem 0;
+  color: var(--white);
+  cursor: default;
+}
+
+.tbody td {
+  padding: 0.75rem;
+  cursor: default;
+}
+
+.tbody tr:nth-child(even) {
+  background-color: #1d64941c;
+}
+
+.arrow {
+  position: absolute;
+  top: 0.5rem;
+}
+
+.id {
+  max-width: 10vw;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.date {
+  max-width: 10vw;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.title {
+  max-width: 24vw;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.actions {
+  padding: 0;
+  width: 13ch;
+}

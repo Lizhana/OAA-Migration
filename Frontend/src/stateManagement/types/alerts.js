@@ -1,0 +1,7 @@
+// Alert Window:
+export const NEW_MESSAGE = "NEW_MESSAGE";
+export const HIDDEN_MESSAGE = "HIDDEN_MESSAGE";
+
+// Confirmation Window
+export const CONFIMATION_WINDOW_OPEN = "CONFIMATION_WINDOW_OPEN";
+export const CONFIMATION_WINDOW_CLOSE = "CONFIMATION_WINDOW_CLOSE";

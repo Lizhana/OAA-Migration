@@ -1,0 +1,46 @@
+@import "../../variables.css";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100vw;
+  background-color: var(--green);
+}
+.header img {
+  width: 8rem;
+}
+
+.header div {
+  display: flex;
+  align-items: center;
+}
+
+.header h1 {
+  color: var(--blue);
+  padding-left: 1rem;
+  text-align: center;
+  font-size: 1.7rem;
+  width: 14ch;
+}
+
+.header h3 {
+  color: var(--blue);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--green);
+  width: 100vw;
+  padding: 1.5rem;
+}
