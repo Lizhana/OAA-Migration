@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUserToNewsletter } from "../../stateManagement/actions/newsDetailActions/newsDetailActions";
-import Styles from "./inscription.module.css";
+import Styles from "./Newsletter.module.css";
 
 export default function FormNewsletter() {
   const dispatch = useDispatch();
+  const [active, setActive] = useState(false);
   const [newUser, setNewUser] = useState({ name: "", email: "" });
 
   const handleChange = (event) => {
@@ -21,9 +22,20 @@ export default function FormNewsletter() {
     setNewUser({ name: "", email: "" });
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActive(true);
+    }, 6000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <form onSubmit={handleSubmit} className={Styles.formLetter}>
-      <div className={Styles["div-form"]}>
+    <>
+      <div className={Styles.fondoModalNewsletter} style={{ display: active ? "flex" : "none" }} onClick={() => setActive(false)}>
+      </div>
+      <form onSubmit={handleSubmit} style={{ display: active ? "flex" : "none" }} className={Styles.formNewsletter}>
+        <button className={Styles.closeBtn} onClick={() => setActive(false)} type="button">X</button>
         <h4>Recibe las noticias mas destacadas</h4>
         <br />
         <input
@@ -31,7 +43,7 @@ export default function FormNewsletter() {
           id="name"
           name="name"
           value={newUser.name}
-          placeholder="Nombre"
+          placeholder="Nombre Completo"
           onChange={handleChange}
           className={Styles.inputInscription}
         />
@@ -40,12 +52,12 @@ export default function FormNewsletter() {
           id="email"
           name="email"
           value={newUser.email}
-          placeholder="Correo Electronico"
+          placeholder="Correo Electrónico"
           onChange={handleChange}
           className={Styles.inputInscription}
         />
-        <input type="submit" value="Suscribete" className={Styles.submitBtn} />
-      </div>
-    </form>
+        <button type="submit" className={Styles.submitBtn}>Suscribete</button>
+      </form>
+    </>
   );
 }

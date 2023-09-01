@@ -1,0 +1,50 @@
+.fondoModalNewsletter {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.541);
+  z-index: 1;
+}
+
+.formNewsletter {
+  padding: 4rem 8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 2;
+}
+
+.inputInscription {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  align-self: center;
+  text-align: center;
+  background-color: rgba(177, 176, 175, 0.374);
+}
+
+.submitBtn {
+  background-color: var(--dark-green);
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.closeBtn {
+  width: auto;
+  color: red;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
+  font-size: 30px;
+}
