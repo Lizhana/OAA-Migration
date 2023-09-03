@@ -7,21 +7,21 @@ import Agroecology from "../../Components/LandingPage/Agroecology/Agroecology";
 import MostReadNews from "../../Components/LandingPage/MostReadNews/MostReadNews";
 import Galery from "../../Components/LandingPage/Galery/Galery";
 import Footer from "../../Components/LandingPage/Footer/Footer";
-import styles from './LandingPage.module.css';
+import Newsletter from '../../Components/LandingPage/Newsletter/Newsletter';
 
+export default function LandingPage() {
 
-export default function LandingPage () {
-    
-    return (
-        <div>
-            <Hero />
-            <PresentationIcons />
-            <Novelty />
-            <Communities />
-            <Agroecology />
-            <MostReadNews />
-            <Galery />
-            <Footer />
-        </div>
-    );
+  return (
+    <>
+      <Newsletter />
+      <Hero />
+      <PresentationIcons />
+      <Novelty />
+      <Communities />
+      <Agroecology />
+      <MostReadNews />
+      <Galery />
+      <Footer />
+    </>
+  );
 };

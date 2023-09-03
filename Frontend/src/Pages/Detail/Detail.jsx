@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styles from "../Detail/Detail.module.css";
-import FormNewsletter from "../../Components/Newsletter/Newsletter";
 import SameCategories from "../../Components/NewDetail/SameCategorie";
 import DetailNew from "../../Components/NewDetail/DetailNew";
 import { useParams } from "react-router-dom";
@@ -37,7 +36,6 @@ export default function Detail() {
   return (
     <div className={styles["container-parent"]}>
       <DetailNew newDetail={newDetail} />
-      <FormNewsletter />
       <SameCategories threeCategories={threeCategories} />
       <RecentNews threeRecents={threeRecents} />
     </div>
