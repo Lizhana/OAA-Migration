@@ -1,27 +1,27 @@
 .navBar {
-  height: 90px;
   width: 100%;
-  background: #0C4B76;
+  background: white;
 }
 .container {
-  height: 100%;
-  width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 0 40px 0 40px;
 }
 .container__logo {
   border-radius: 10px;
-  background: #FBE9C9;
   padding: 2px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.3s;
+}
+.container__logo:hover{
+  transform: scale(1.1);
 }
 .container__items {
-  gap: 10px;
+  gap: 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -29,11 +29,13 @@
 .item {
   text-decoration: none;
   text-decoration: none;
-  color: #f8f9fa;
+  color: green;
   letter-spacing: 2.5px;
+  transition: 0.3s;
 }
 .item:hover {
-  color: #FBE9C9;
+  color: rgb(0, 70, 0);
+  transform: translateY(3px);
 }
 
 .donate {
@@ -41,25 +43,27 @@
   border: none;
   background-image: linear-gradient(
     to right,
-    #d31027 0%,
-    #ea384d 51%,
-    #d31027 100%
+    #376b15 0%,
+    #31640f 51%,
+    #244d09 100%
   );
-  padding: 15px 15px;
+  padding: 10px 10px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  border-radius: 10px;
+  border-radius: 25px;
   display: block;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
 .donate:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+  transform: translateY(3px);
 }
 
 .visible {
