@@ -3,7 +3,10 @@ const { News } = require('../db');
 const getAllNews = async () => {
   try {
     const news = await News.findAll();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 151e126462ad7bffcf3ebf061efc2818d8b44a24
     return news.reverse();
   } catch (error) {
     console.error(error);
