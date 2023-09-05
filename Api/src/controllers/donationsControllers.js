@@ -80,7 +80,7 @@ const deleteDonation = async (req, res) => {
 
   try {
     const result = await donationService.deleteDonation(id);
-    return res.status(204).json(result);
+    return res.status(200).json(result);
   } catch (error) {
     console.error(error);
     const status = error.status || 500;

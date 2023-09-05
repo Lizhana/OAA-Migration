@@ -218,8 +218,8 @@ const deleteNews = async (req, res) => {
     const deletedNews = await newsService.deleteNews(id);
 
     return res
-      .status(204)
-      .json({ message: `News ${id} eliminada exitosamente` });
+      .status(200)
+      .json({ message: `News ${deletedNews.id} eliminada exitosamente` });
   } catch (error) {
     console.error(error);
     const status = error.status || 500;

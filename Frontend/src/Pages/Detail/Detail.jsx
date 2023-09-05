@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../../Components/NewDetail/inscription.module.css";
-import FormNewsletter from "../../Components/NewDetail/NewsletterForm";
+import styles from "../Detail/Detail.module.css";
 import SameCategories from "../../Components/NewDetail/SameCategorie";
 import DetailNew from "../../Components/NewDetail/DetailNew";
 import { useParams } from "react-router-dom";
@@ -32,17 +31,13 @@ export default function Detail() {
       dispatch(threNewsRecentAction());
     }
   }, [dispatch, newDetail.category]);
-  
+
 
   return (
-  <div className={styles["container-parent-pric"]}>
     <div className={styles["container-parent"]}>
-      
       <DetailNew newDetail={newDetail} />
-      <FormNewsletter />
       <SameCategories threeCategories={threeCategories} />
       <RecentNews threeRecents={threeRecents} />
-    </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ const getAdmins = async () => {
     throw new Error("Ocurrió un error al obtener a los administradores.");
   }
 };
-
+//
 const getAdminById = async (id) => {
   try {
     const admin = await AdminsSchema.findByPk(id);

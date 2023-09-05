@@ -1,4 +1,4 @@
-const newsletterService = require('../service/newlletterService')
+const newsletterService = require('../service/newsletterService')
 
 
 const getNewsletters = async (req, res) => {
