@@ -106,7 +106,7 @@ const putOurWork = async (req, res) => {
     titleMain,
     date,
     location,
-    content,
+    description,
     image,
     multimedia,
     extraData,
@@ -118,14 +118,14 @@ const putOurWork = async (req, res) => {
       titleMain,
       date,
       location,
-      content,
+      description,
       image,
       multimedia,
       extraData,
       isFinished,
       labels,
     };
-    const updatedOurWork = await ourWorkService.updateOurWork(id, data);
+    const updatedOurWork = await ourWorkService.updateOurWork(Number(id), data);
     return res.status(200).json(updatedOurWork);
   } catch (error) {
     console.error(error);
@@ -171,7 +171,7 @@ const deleteOurWork = async (req, res) => {
   const { id } = req.params;
   try {
     const result = await ourWorkService.deleteOurWork(id);
-    return res.status(204).json(result);
+    return res.status(200).json(result);
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
