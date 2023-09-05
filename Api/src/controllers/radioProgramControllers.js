@@ -1,7 +1,8 @@
-const radioProgramService = require('../service/radioProgramService')
+const RadioProgramsService = require('../service/radioProgramService')
 
 const getRadioPrograms = async (req, res) => {
   try {
+    console.log("entre a la funcion ")
     const radioPrograms = await RadioProgramsService.getRadioPrograms();
     return res.status(200).json(radioPrograms);
   } catch (error) {
