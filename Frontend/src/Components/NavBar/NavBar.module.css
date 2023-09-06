@@ -1,6 +1,16 @@
 .navBar {
   width: 100%;
-  background: white;
+  background: rgba(245, 245, 245, 0.966);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: background 0.4s;
+}
+.scrolling {
+  background: rgba(243, 243, 243, 0.726);
+  height: 80px;
+  margin-top: -10px;
 }
 .container {
   display: flex;

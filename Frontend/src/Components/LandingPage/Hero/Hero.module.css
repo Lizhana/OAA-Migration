@@ -17,27 +17,29 @@
 .landing {
   position: absolute;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content:space-between;
   width: 100%;
   top: 40%;
   z-index: 2;
+  background-color: #00000090;
+  margin-top: 20%;
+  padding: 10px 40px 10px 40px;
 }
 .landing p {
-  width: 75%;
+  width: 50%;
   color: var(--white);
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
   text-shadow: 1px 1px 2px #000000;
 }
 .buttonWe {
   margin-top: 1rem;
-  padding: 1rem 2rem;
+  padding: 15px;
   border: none;
   border-radius: 25px;
   height: 50px;
-  width: 120px;
+  width: auto;
   margin: 1rem;
   display: flex;
   align-items: center;

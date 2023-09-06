@@ -62,13 +62,17 @@
 
 .closeBtn {
   width: auto;
-  color: red;
+  color: rgb(65, 65, 65);
   background-color: transparent;
   border: none;
   cursor: pointer;
   position: absolute;
   right: 1rem;
   top: 1rem;
+  transition: 0.4s;
+}
+.closeBtn:hover{
+  color: red;
 }
 
 @media (min-width: 1200px) {

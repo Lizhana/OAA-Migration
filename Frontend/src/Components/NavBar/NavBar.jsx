@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from '../../Components/LandingPage/Footer/Logo/Logo'
 import { FaUser } from 'react-icons/fa';
@@ -6,13 +6,32 @@ import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   const { pathname } = useLocation();
+  const [scrolling, setScrolling] = useState(false);
+
   let visible = "visible";
 
   if (pathname === "/login" || pathname === "/panel-admin") {
     visible = "invisible";
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className={styles.navBar}>
+    <div className={`${styles.navBar} ${scrolling ? styles.scrolling : ""}`}>
       <div className={styles.container}>
         <div className={styles.container__logo}>
           <Logo />
