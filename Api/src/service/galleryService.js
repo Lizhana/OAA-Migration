@@ -65,20 +65,7 @@ const getGalleryById = async (id) => {
       throw { status: 404, message: "La galería no se encontró" };
     }
 
-    const parsedImage = JSON.parse(gallery.image);
-    const parsedVideo = JSON.parse(gallery.video);
-    const parsedMultimedia = JSON.parse(gallery.multimedia || "[]");
-    const parsedLabels = JSON.parse(gallery.labels || "{}");
-
-    const parsedGallery = {
-      ...gallery.toJSON(),
-      image: parsedImage,
-      video: parsedVideo,
-      multimedia: parsedMultimedia,
-      labels: parsedLabels,
-    };
-
-    return parsedGallery;
+    return gallery;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -99,20 +86,7 @@ const getActiveGalleryById = async (id) => {
       throw { status: 404, message: "La galería no se encontró" };
     }
 
-    const parsedImage = JSON.parse(gallery.image);
-    const parsedVideo = JSON.parse(gallery.video);
-    const parsedMultimedia = JSON.parse(gallery.multimedia || "[]");
-    const parsedLabels = JSON.parse(gallery.labels || "{}");
-
-    const parsedGallery = {
-      ...gallery.toJSON(),
-      image: parsedImage,
-      video: parsedVideo,
-      multimedia: parsedMultimedia,
-      labels: parsedLabels,
-    };
-
-    return parsedGallery;
+    return gallery;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
