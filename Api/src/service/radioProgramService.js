@@ -1,6 +1,7 @@
 const { RadioPrograms } = require("../db");
 
 const getRadioPrograms = async () => {
+
   try {
     const radioPrograms = await RadioPrograms.findAll();
     return radioPrograms.reverse();
@@ -43,6 +44,24 @@ const getRadioProgramById = async (id) => {
   }
 };
 
+const getRadioProgramByTitle = async (titleMain) => {
+  try {
+    const radioProgram = await RadioPrograms.findOne({
+      where:{titleMain}
+    });
+    console.log(radioProgram);
+
+    return radioProgram;
+    
+  } catch (error) {
+    console.error(error);
+    const status = error.status || 500;
+    const message =
+      error.message || "Ocurrió un error al obtener el programa de radio.";
+    throw { status, message };
+    
+  }
+}
 const getActiveRadioProgramById = async (id) => {
   try {
     const radioProgram = await RadioPrograms.findOne({
@@ -62,6 +81,8 @@ const getActiveRadioProgramById = async (id) => {
 };
 
 const createRadioProgram = async (data) => {
+  console.log(data)
+
   try {
     const createdRadioProgram = await RadioPrograms.create(data);
     return createdRadioProgram;
@@ -172,4 +193,6 @@ module.exports = {
   desactivateRadioProgram,
   deleteRadioProgram,
   updateRadioProgram,
+  createRadioProgram,
+  getRadioProgramByTitle
 };

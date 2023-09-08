@@ -3,20 +3,7 @@ const { News } = require('../db');
 const getAllNews = async () => {
   try {
     const news = await News.findAll();
-    const parsedNews = news.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
-      const parsedlabels = JSON.parse(item.labels || '{}');
-
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        multimedia: parsedMultimedia,
-        labels: parsedlabels,
-      };
-    });
-
-    return parsedNews.reverse();
+    return news.reverse();
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -29,20 +16,8 @@ const getAllNews = async () => {
 const getActiveNews = async () => {
   try {
     const news = await News.findAll({ where: { isDeleted: false } });
-    const parsedNews = news.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
-      const parsedlabels = JSON.parse(item.label || '{}');
 
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        multimedia: parsedMultimedia,
-        labels: parsedlabels,
-      };
-    });
-
-    return parsedNews;
+    return news;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -60,18 +35,7 @@ const getNewsById = async (id) => {
       throw { status: 404, message: 'La noticia no se encontró' };
     }
 
-    const parsedImage = JSON.parse(news.image);
-    const parsedMultimedia = JSON.parse(news.multimedia || '[]');
-    const parsedLabels = JSON.parse(news.labels || '{}');
-
-    const parsedNews = {
-      ...news.toJSON(),
-      image: parsedImage,
-      multimedia: parsedMultimedia,
-      labels: parsedLabels,
-    };
-
-    return parsedNews;
+    return news;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -93,18 +57,7 @@ const getActiveNewsById = async (id) => {
       throw { status: 404, message: 'La noticia no se encontró' };
     }
 
-    const parsedImage = JSON.parse(news.image);
-    const parsedMultimedia = JSON.parse(news.multimedia || '[]');
-    const parsedLabesl = JSON.parse(news.labels || '{}');
-
-    const parsedNews = {
-      ...news.toJSON(),
-      image: parsedImage,
-      multimedia: parsedMultimedia,
-      labels: parsedLabesl,
-    };
-
-    return parsedNews;
+    return news;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -124,20 +77,7 @@ const getThreeNews = async () => {
       return null;
     }
 
-    const parsedNews = news.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
-      const parsedLabels = JSON.parse(item.labels || '{}');
-
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        multimedia: parsedMultimedia,
-        labels: parsedLabels,
-      };
-    });
-
-    return parsedNews;
+    return news;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -159,20 +99,7 @@ const getThreeNewsByCategory = async (category) => {
       return null;
     }
 
-    const parsedNews = news.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
-      const parsedLabels = JSON.parse(item.labels || '{}');
-
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        multimedia: parsedMultimedia,
-        labels: parsedLabels,
-      };
-    });
-
-    return parsedNews;
+    return news;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;

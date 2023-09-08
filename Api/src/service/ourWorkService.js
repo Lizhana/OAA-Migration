@@ -3,20 +3,7 @@ const { OurWorks } = require("../db");
 const getAllOurWorks = async () => {
   try {
     const works = await OurWorks.findAll();
-    const parsedWorks = works.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedMultimedia = JSON.parse(item.multimedia || "[]");
-      const parsedLabels = JSON.parse(item.labels || "{}");
-
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        multimedia: parsedMultimedia,
-        labels: parsedLabels,
-      };
-    });
-
-    return parsedWorks.reverse();
+    return works.reverse();
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -30,20 +17,8 @@ const getAllOurWorks = async () => {
 const getActiveOurWorks = async () => {
   try {
     const works = await OurWorks.findAll({ where: { isDeleted: false } });
-    const parsedWorks = works.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedMultimedia = JSON.parse(item.multimedia || "[]");
-      const parsedLabels = JSON.parse(item.labels || "{}");
 
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        multimedia: parsedMultimedia,
-        labels: parsedLabels,
-      };
-    });
-
-    return parsedWorks
+    return works;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -61,18 +36,7 @@ const getOurWorkById = async (id) => {
       throw { status: 404, message: "El trabajo no se encontró" };
     }
 
-    const parsedImage = JSON.parse(work.image);
-    const parsedMultimedia = JSON.parse(work.multimedia || "[]");
-    const parsedLabels = JSON.parse(work.labels || "{}");
-
-    const parsedWork = {
-      ...work.toJSON(),
-      image: parsedImage,
-      multimedia: parsedMultimedia,
-      labels: parsedLabels,
-    };
-
-    return parsedWork;
+    return work;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -95,18 +59,7 @@ const getActiveOurWorkById = async (id) => {
       throw { status: 404, message: "El trabajo no se encontró" };
     }
 
-    const parsedImage = JSON.parse(work.image);
-    const parsedMultimedia = JSON.parse(work.multimedia || "[]");
-    const parsedLabels = JSON.parse(work.labels || "{}");
-
-    const parsedWork = {
-      ...work.toJSON(),
-      image: parsedImage,
-      multimedia: parsedMultimedia,
-      labels: parsedLabels,
-    };
-
-    return parsedWork;
+    return work;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -133,14 +86,16 @@ const createOurWork = async (data) => {
 
 const updateOurWork = async (id, data) => {
   try {
-    const [rowsUpdated, [updatedOurWork]] = await OurWorks.update(data, {
+    const [rowsUpdated] = await OurWorks.update(data, {
       where: { id },
-      returning: true,
-    });
+  })
+
+    const updatedResult = await OurWorks.findOne({where:{id}})
+
     if (rowsUpdated === 0) {
       throw { status: 404, message: "Archivo no encontrado" };
     }
-    return updatedOurWork;
+    return updatedResult;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -199,7 +154,7 @@ const deleteOurWork = async (id) => {
       };
     }
     await deletedWork.destroy();
-    return { message: `Archivo eliminada exitosamente.` };
+    return { message: `Archivo con id ${id} fue eliminado exitosamente.` };
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
