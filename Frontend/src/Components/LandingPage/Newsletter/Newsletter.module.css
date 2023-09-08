@@ -32,9 +32,16 @@
 }
 
 .formNewsletter {
-  padding-top: 15px;
+  margin-top: 15px;
   justify-content: space-between;
   align-items: center;
+}
+
+.containerNewsletter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .inputInscription {
@@ -50,14 +57,19 @@
   outline: none;
 }
 
+.errorText {
+  color: var(--red);
+  font-weight: bold;
+}
+
 .submitBtn {
   background-color: var(--dark-green);
   color: #fff;
   border: none;
-  padding: 10px 25px;
+  padding: 12px 20px;
   border-radius: 5px;
   cursor: pointer;
-  align-self: center;
+  text-transform: uppercase;
 }
 
 .closeBtn {
@@ -71,11 +83,8 @@
   top: 1rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .inputInscription {
-    margin-right: 5px;
-  }
-  .submitBtn {
-    margin-right: 10px;
+    width: 60%;
   }
 }
