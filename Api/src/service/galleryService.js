@@ -3,22 +3,8 @@ const { Galleries } = require("../db");
 const getGalleries = async () => {
   try {
     const galleries = await Galleries.findAll();
-    const parsedGalleries = galleries.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedVideo = JSON.parse(item.video);
-      const parsedMultimedia = JSON.parse(item.multimedia || "[]");
-      const parsedLabels = JSON.parse(item.labels || "{}");
 
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        video: parsedVideo,
-        multimedia: parsedMultimedia,
-        labels: parsedLabels,
-      };
-    });
-
-    return parsedGalleries.reverse();
+    return galleries.reverse();
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -32,22 +18,8 @@ const getGalleries = async () => {
 const getActiveGalleries = async () => {
   try {
     const galleries = await Galleries.findAll({ where: { isDeleted: false } });
-    const parsedGalleries = galleries.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedVideo = JSON.parse(item.video);
-      const parsedMultimedia = JSON.parse(item.multimedia || "[]");
-      const parsedLabels = JSON.parse(item.labels || "{}");
 
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        video: parsedVideo,
-        multimedia: parsedMultimedia,
-        labels: parsedLabels,
-      };
-    });
-
-    return parsedGalleries.reverse();
+    return galleries.reverse();
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
