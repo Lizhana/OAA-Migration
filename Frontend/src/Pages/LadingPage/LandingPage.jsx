@@ -5,9 +5,9 @@ import Novelty from "../../Components/LandingPage/Novelty/Novelty";
 import Communities from "../../Components/LandingPage/Communities/Communities";
 import Agroecology from "../../Components/LandingPage/Agroecology/Agroecology";
 import MostReadNews from "../../Components/LandingPage/MostReadNews/MostReadNews";
-import Galery from "../../Components/LandingPage/Galery/Galery";
 import Footer from "../../Components/LandingPage/Footer/Footer";
 import styles from './LandingPage.module.css';
+import Gallery from '../Gallery/Gallery';
 
 
 export default function LandingPage () {
@@ -20,7 +20,7 @@ export default function LandingPage () {
             <Communities />
             <Agroecology />
             <MostReadNews />
-            <Galery />
+            <Gallery />
             <Footer />
         </div>
     );

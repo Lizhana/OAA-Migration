@@ -27,7 +27,7 @@ export default function NavBar() {
           <Link className={`${styles.item} `} to={"/communities"}>
             COMUNIDADES
           </Link>
-          <Link className={`${styles.item} `} to={"/galery"}>
+          <Link className={`${styles.item} `} to={"/gallery"}>
             GALERIA
           </Link>
           <Link className={`${styles.item} `} to={"/naturalezaSomos"}>

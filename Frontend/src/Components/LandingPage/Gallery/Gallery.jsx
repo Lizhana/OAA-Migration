@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { data } from "./data";
-import styles from './Galery.module.css';
+import styles from './Gallery.module.css';
 
 
-export default function Galery () {    
+export default function Gallery () {    
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function Galery () {
     }, []);
 
     return (
-        <div className={styles.galery}>
+        <div className={styles.gallery}>
             <div className={styles.video}>Uno</div>
             <div className={styles.containerImages}>
                 <img className={styles.images} src={data[index]} alt="" />
