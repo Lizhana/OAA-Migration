@@ -8,7 +8,7 @@ export default function Logo () {
 
     return (
         <div className={styles.logo}>
-            <Link className={styles.links} to='http://127.0.0.1:5173/'>
+            <Link className={styles.links} to='/'>
                 <div className={styles.logo__container} >
                     <div>
                         <img className={styles.logoImage} src={LogoImage} alt="Logo" />

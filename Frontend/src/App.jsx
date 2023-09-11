@@ -1,5 +1,6 @@
 import axios from "axios";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import AlertWindow from "./Components/Alerts/AlertWindow";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Newsletter from "./Components/LandingPage/Newsletter/Newsletter";
@@ -12,7 +13,7 @@ import Done from "./Pages/Done/Done";
 import Error404 from "./Pages/Error404/Error404";
 import Gallery from "./Pages/Gallery/Gallery";
 import Honorific from "./Pages/Honorific/Honorific";
-import LandingPage from "./Pages/LadingPage/LandingPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import Loader from "./Components/Loader/Loader";
 import LoginAdmin from "./Pages/LoginAdmin/LoginAdmin";
 import NaturalezaSomos from "./Pages/NaturalezaSomos/NaturalezaSomos";
@@ -28,6 +29,15 @@ import WorkDetail from "./Pages/OurWork/WorkDetail";
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [pathname]);
+
   return (
     <>
       <Loader />
@@ -35,7 +45,6 @@ function App() {
       <AlertWindow />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={<Navigate to="/" />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/novelties" element={<Novelties />} />
         <Route path="/communities" element={<Communities />} />
