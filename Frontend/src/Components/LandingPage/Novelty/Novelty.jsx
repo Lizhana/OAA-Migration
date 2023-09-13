@@ -39,7 +39,7 @@ export default function NewsOAA () {
             {latestNews ? (
                 <div className={styles.containerNews}>
                     <div className={styles.containerImage}>
-                        <img src={latestNews?.images[0]?.url} className={styles?.image} alt="Image" />
+                        <img src={latestNews.images && latestNews.images[0].url} className={styles?.image} alt="Image" />
                     </div>
 
                     <div className={styles?.containerText}>

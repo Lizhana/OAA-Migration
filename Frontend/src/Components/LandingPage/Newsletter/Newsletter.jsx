@@ -42,7 +42,7 @@ const Newsletter = () => {
     if (existsSubscriber) return;
     const timer = setTimeout(() => {
       setActive(true);
-    }, 1000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
