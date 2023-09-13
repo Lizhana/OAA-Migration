@@ -162,7 +162,7 @@ const putAdmin = async (req, res) => {
     const { id } = req.params;
     const { name, email } = req.body;
 
-    const updatedAdmin = await adminsService.updateAdmin(id, name, email);
+    const updatedAdmin = await adminsService.updateAdmin(Number(id), name, email);
 
     return res.status(200).json(updatedAdmin);
   } catch (error) {

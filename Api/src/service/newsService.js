@@ -3,20 +3,20 @@ const { News } = require('../db');
 const getAllNews = async () => {
   try {
     const news = await News.findAll();
-    const parsedNews = news.map((item) => {
-      const parsedImage = JSON.parse(item.image);
-      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
-      const parsedlabels = JSON.parse(item.labels || '{}');
+    // const parsedNews = news.map((item) => {
+    //   const parsedImage = JSON.parse(item.image);
+    //   const parsedMultimedia = JSON.parse(item.multimedia || '[]');
+    //   const parsedlabels = JSON.parse(item.labels || '{}');
 
-      return {
-        ...item.toJSON(),
-        image: parsedImage,
-        multimedia: parsedMultimedia,
-        labels: parsedlabels,
-      };
-    });
+    //   return {
+    //     ...item.toJSON(),
+    //     image: parsedImage,
+    //     multimedia: parsedMultimedia,
+    //     labels: parsedlabels,
+    //   };
+    // });
 
-    return parsedNews.reverse();
+    return news.reverse();
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -60,18 +60,18 @@ const getNewsById = async (id) => {
       throw { status: 404, message: 'La noticia no se encontró' };
     }
 
-    const parsedImage = JSON.parse(news.image);
-    const parsedMultimedia = JSON.parse(news.multimedia || '[]');
-    const parsedLabels = JSON.parse(news.labels || '{}');
+    // const parsedImage = JSON.parse(news.image);
+    // const parsedMultimedia = JSON.parse(news.multimedia || '[]');
+    // const parsedLabels = JSON.parse(news.labels || '{}');
 
-    const parsedNews = {
-      ...news.toJSON(),
-      image: parsedImage,
-      multimedia: parsedMultimedia,
-      labels: parsedLabels,
-    };
+    // const parsedNews = {
+    //   ...news.toJSON(),
+    //   image: parsedImage,
+    //   multimedia: parsedMultimedia,
+    //   labels: parsedLabels,
+    // };
 
-    return parsedNews;
+    return news;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -182,9 +182,37 @@ const getThreeNewsByCategory = async (category) => {
   }
 };
 
-const createNews = async (newsData) => {
+const createNews = async ({
+  titleMain,
+  date,
+  category,
+  author,
+  urlAuthor,
+  location,
+  introduction,
+  images,
+  description,
+  multimedia,
+  visitorCounter,
+  extraData,
+  labels,
+}) => {
   try {
-    const createdNews = await News.create(newsData);
+    const createdNews = await News.create({
+      titleMain,
+      date,
+      category,
+      author,
+      urlAuthor,
+      location,
+      introduction,
+      images,
+      description,
+      multimedia,
+      visitorCounter,
+      extraData,
+      labels,
+    });
 
     return createdNews;
   } catch (error) {

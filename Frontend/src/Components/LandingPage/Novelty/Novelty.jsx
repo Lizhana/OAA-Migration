@@ -39,14 +39,14 @@ export default function NewsOAA () {
             {latestNews ? (
                 <div className={styles.containerNews}>
                     <div className={styles.containerImage}>
-                        <img src={latestNews.image[0].url} className={styles.image} alt="Image" />
+                        <img src={latestNews?.images[0]?.url} className={styles?.image} alt="Image" />
                     </div>
 
-                    <div className={styles.containerText}>
-                        <h2>{latestNews.titleMain}</h2>
-                        <p>{latestNews.introduction}</p>
-                        <h4>{latestNews.date}</h4>
-                        <Link className={styles.linkText} to={'/#'} target="_blank" rel="noreferrer">Saber más</Link>
+                    <div className={styles?.containerText}>
+                        <h2>{latestNews?.titleMain}</h2>
+                        <p>{latestNews?.introduction}</p>
+                        <h4>{latestNews?.date}</h4>
+                        <Link className={styles?.linkText} to={`/noticia/${latestNews.id}`} target="_blank" rel="noreferrer">Saber más</Link>
                     </div>
                 </div>
                 ) : (

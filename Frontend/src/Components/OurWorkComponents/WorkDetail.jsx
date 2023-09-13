@@ -1,5 +1,5 @@
 import React from "react";
-import SwipeableTextMobileStepper from "../NewDetail/ImagesWork";
+import SwipeableTextMobileStepper from "../DetailNew/ImagesWork";
 import Styles from "./detailWork.module.css";
 
 export default function WorkDetailComponent({ onlyAWork }) {

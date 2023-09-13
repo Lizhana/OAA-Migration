@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import styles from "../Detail/Detail.module.css";
-import SameCategories from "../../Components/NewDetail/SameCategorie";
-import DetailNew from "../../Components/NewDetail/DetailNew";
+import styles from "./Detail.module.css";
+import SameCategories from "../../Components/DetailNew/SameCategorie";
+import DetailNew from "../../Components/DetailNew/DetailNew";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewDetail } from "../../stateManagement/actions/panelAdmin/news.actions";
@@ -9,7 +9,7 @@ import {
   threNewsCategory,
   threNewsRecentAction,
 } from "../../stateManagement/actions/newsDetailActions/newsDetailActions";
-import RecentNews from "../../Components/NewDetail/RecentNews";
+import RecentNews from "../../Components/DetailNew/RecentNews";
 
 export default function Detail() {
   const { id } = useParams(),
@@ -34,10 +34,14 @@ export default function Detail() {
 
 
   return (
-    <div className={styles["container-parent"]}>
-      <DetailNew newDetail={newDetail} />
-      <SameCategories threeCategories={threeCategories} />
-      <RecentNews threeRecents={threeRecents} />
+    <div className={styles["detail-container"]}>
+      <div className={styles["detail-left"]}>
+        <DetailNew newDetail={newDetail} />
+      </div>
+      <div className={styles["detail-right"]}>
+        <SameCategories threeCategories={threeCategories} />
+        <RecentNews threeRecents={threeRecents} />
+      </div>
     </div>
   );
 }

@@ -41,10 +41,10 @@ module.exports =sequelize => { sequelize.define(
       type: DataTypes.STRING,
     },
     introduction: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-    image: {
+    images: {
       type: DataTypes.JSON
     },
     description: {

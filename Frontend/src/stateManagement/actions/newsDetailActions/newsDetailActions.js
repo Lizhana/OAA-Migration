@@ -31,7 +31,7 @@ export function threNewsCategory(category) {
 export function threNewsRecentAction() {
   return async function (dispatch) {
     try {
-      const recentThree = await axios.get(`http://localhost:3001/news/news/recent`)
+      const recentThree = await axios.get(`http://localhost:3001/news/recent`)
       return dispatch({ type: constants.THREE_RECENTS, payload: recentThree.data })
     } catch (error) {
       console.log(error.message);
@@ -54,7 +54,6 @@ export function getAllWorKs() {
   return async function (dispatch) {
     try {
       const Allworks = await axios.get(`/work`);
-      console.log(Allworks.data, 'actiomns');
       return dispatch({
         type: constants.GET_ALL_WORKS,
         payload: Allworks.data,
