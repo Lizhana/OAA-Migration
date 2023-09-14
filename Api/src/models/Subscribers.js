@@ -17,6 +17,10 @@ module.exports = sequelize => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      mailerLiteId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      }
     },
     {
       timestamps: false,

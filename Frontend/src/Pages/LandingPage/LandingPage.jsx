@@ -14,7 +14,7 @@ export default function LandingPage() {
   return (
     <> 
       <Newsletter />
-      <Toaster richColors position="top-right" />
+      <Toaster richColors closeButton />
       <Hero />
       <PresentationIcons />
       <Novelty />

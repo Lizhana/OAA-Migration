@@ -5,9 +5,9 @@ import * as constants from "../../types/constActionsDetail"
 export function addUserToNewsletter(data) {
   return async function (dispatch) {
     try {
-      const newUser = await axios.post("http://localhost:3001/newsletter", data);
+      const newUser = await axios.post("http://localhost:3001/subscribers", data);
       window.localStorage.setItem("suscriptor", JSON.stringify(newUser));
-      toast.success("¡Te has suscrito correctamente a nuestra newsletter!")
+      toast.success("¡Te has suscrito correctamente!")
       return dispatch({ type: constants.INSCRIPTION_NEWSLETTER, payload: newUser })
 
     } catch (error) {

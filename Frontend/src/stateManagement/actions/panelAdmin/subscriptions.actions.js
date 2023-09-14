@@ -5,6 +5,7 @@ import {
   DELETE_SUBSCRIPTION,
   CLEAR_ONE_SUBSCRIPTION,
   ONE_SUBSCRIPTION,
+  COUNT_SUBSCRIPTIONS,
 } from "../../types/panelAdmin";
 import { LOADER_OFF, LOADER_ON } from "../../types/loader";
 import { NEW_MESSAGE } from "../../types/alerts";
@@ -34,6 +35,20 @@ export const getSubscriptions = () => {
       });
   };
 };
+
+export const getCountSubscription = () => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get("/subscribers/count");
+      dispatch({
+        type: COUNT_SUBSCRIPTIONS,
+        payload: data.total,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
 
 export const getOneSubscription = (id) => {
   return function (dispatch) {
