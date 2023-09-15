@@ -1,8 +1,7 @@
-const RadioProgramsService = require('../service/radioProgramService')
+const RadioProgramsService = require('../service/radioProgramService');
 
 const getRadioPrograms = async (req, res) => {
   try {
-    console.log("entre a la funcion ")
     const radioPrograms = await RadioProgramsService.getRadioPrograms();
     return res.status(200).json(radioPrograms);
   } catch (error) {
@@ -14,6 +13,10 @@ const getRadioPrograms = async (req, res) => {
     return res.status(status).json({ message });
   }
 };
+
+// const example = () => {
+//   console.log("holaas")
+// }
 
 const getActiveRadioPrograms = async (req, res) => {
   try {
@@ -207,5 +210,5 @@ module.exports = {
   putRadioProgram,
   desactivateRadioProgram,
   activateRadioProgram,
-  deleteRadioProgram
+  deleteRadioProgram,
 };
