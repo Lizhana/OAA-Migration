@@ -46,7 +46,7 @@ const Newsletter = () => {
       const timer = setTimeout(() => {
         setActiveModal(true);
         window.sessionStorage.setItem("showModal", "true");
-      }, 1000);
+      }, 10000);
 
       return () => clearTimeout(timer);
     }
