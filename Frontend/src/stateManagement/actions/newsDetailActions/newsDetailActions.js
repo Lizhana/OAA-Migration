@@ -1,15 +1,18 @@
 import axios from "axios"
+import { toast } from "sonner"
 import * as constants from "../../types/constActionsDetail"
 
 export function addUserToNewsletter(data) {
   return async function (dispatch) {
     try {
-      const newUser = await axios.post("http://localhost:3001/newsletter", data)
-      alert('Inscrito con exito')
+      const newUser = await axios.post("http://localhost:3001/newsletter", data);
+      window.localStorage.setItem("suscriptor", JSON.stringify(newUser));
+      toast.success("¡Te has suscrito correctamente a nuestra newsletter!")
       return dispatch({ type: constants.INSCRIPTION_NEWSLETTER, payload: newUser })
 
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      toast.error("Ocurrió un error al suscribirte.");
     }
   }
 };

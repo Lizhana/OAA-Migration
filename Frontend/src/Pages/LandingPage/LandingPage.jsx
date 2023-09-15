@@ -1,4 +1,4 @@
-import React from 'react';
+import { Toaster } from "sonner";
 import Hero from "../../Components/LandingPage/Hero/Hero";
 import PresentationIcons from "../../Components/LandingPage/PresentationIcons/PresentationIcons";
 import Novelty from "../../Components/LandingPage/Novelty/Novelty";
@@ -11,10 +11,10 @@ import Gallery from '../Gallery/Gallery';
 import Newsletter from '../../Components/LandingPage/Newsletter/Newsletter';
 
 export default function LandingPage () {
-    
     return (
         <div>
             <Newsletter />
+            <Toaster richColors position="top-right" />
             <Hero />
             <PresentationIcons />
             <Novelty />
