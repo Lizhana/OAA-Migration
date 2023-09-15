@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogoImage from '../../../../assets/OAA.png';
+import LogoImage from '../../../../assets/output.png';
 import styles from "./Logo.module.css";
 
 
@@ -12,13 +12,6 @@ export default function Logo () {
                 <div className={styles.logo__container} >
                     <div>
                         <img className={styles.logoImage} src={LogoImage} alt="Logo" />
-                    </div>
-                    <div className={styles.logoFirts}>
-                        <div>ORGANIZACION de</div>
-                        <div>AMBIENTALISTAS</div>
-                    </div>
-                    <div className={styles.logoSecond}>
-                        <div>AUTOCONVOCADOS</div>
                     </div>
                 </div>
             </Link>

@@ -5,8 +5,8 @@ import Novelty from "../../Components/LandingPage/Novelty/Novelty";
 import Communities from "../../Components/LandingPage/Communities/Communities";
 import Agroecology from "../../Components/LandingPage/Agroecology/Agroecology";
 import MostReadNews from "../../Components/LandingPage/MostReadNews/MostReadNews";
-import Galery from "../../Components/LandingPage/Galery/Galery";
 import Footer from "../../Components/LandingPage/Footer/Footer";
+import Gallery from '../Gallery/Gallery';
 import Newsletter from '../../Components/LandingPage/Newsletter/Newsletter';
 
 export default function LandingPage() {
@@ -14,14 +14,14 @@ export default function LandingPage() {
   return (
     <> 
       <Newsletter />
-      <Toaster richColors closeButton />
+      <Toaster richColors closeButton position="top-right" />
       <Hero />
       <PresentationIcons />
       <Novelty />
       <Communities />
       <Agroecology />
       <MostReadNews />
-      <Galery />
+      <Gallery />
       <Footer />
     </>
   );

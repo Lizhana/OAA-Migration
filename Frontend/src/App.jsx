@@ -9,7 +9,7 @@ import Communities from "./Pages/Communities/Communities";
 import Detail from "./Pages/Detail/Detail";
 import Done from "./Pages/Done/Done";
 import Error404 from "./Pages/Error404/Error404";
-import Galery from "./Pages/Galery/Galery";
+import Gallery from "./Pages/Gallery/Gallery";
 import Honorific from "./Pages/Honorific/Honorific";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Loader from "./Components/Loader/Loader";
@@ -46,7 +46,7 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/novelties" element={<Novelties />} />
         <Route path="/communities" element={<Communities />} />
-        <Route path="/galery" element={<Galery />} />
+        <Route path="/galeria" element={<Gallery />} />
         <Route path="/naturalezaSomos" element={<NaturalezaSomos />} />
         <Route path="/done" element={<Done />} />
         <Route path="/activeCases" element={<ActiveCases />} />
