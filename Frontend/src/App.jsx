@@ -3,8 +3,6 @@ import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import AlertWindow from "./Components/Alerts/AlertWindow";
 import AboutUs from "./Pages/AboutUs/AboutUs";
-import Newsletter from "./Components/LandingPage/Newsletter/Newsletter";
-
 
 import ActiveCases from "./Pages/ActiveCases/ActiveCases";
 import Communities from "./Pages/Communities/Communities";
@@ -48,7 +46,6 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/novelties" element={<Novelties />} />
         <Route path="/communities" element={<Communities />} />
-        <Route path="/newsletter" element={<Newsletter />} />
         <Route path="/galeria" element={<Gallery />} />
         <Route path="/naturalezaSomos" element={<NaturalezaSomos />} />
         <Route path="/done" element={<Done />} />

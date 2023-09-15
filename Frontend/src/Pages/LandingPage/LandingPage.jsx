@@ -6,23 +6,23 @@ import Communities from "../../Components/LandingPage/Communities/Communities";
 import Agroecology from "../../Components/LandingPage/Agroecology/Agroecology";
 import MostReadNews from "../../Components/LandingPage/MostReadNews/MostReadNews";
 import Footer from "../../Components/LandingPage/Footer/Footer";
-import styles from './LandingPage.module.css';
 import Gallery from '../Gallery/Gallery';
 import Newsletter from '../../Components/LandingPage/Newsletter/Newsletter';
 
-export default function LandingPage () {
-    return (
-        <div>
-            <Newsletter />
-            <Toaster richColors position="top-right" />
-            <Hero />
-            <PresentationIcons />
-            <Novelty />
-            <Communities />
-            <Agroecology />
-            <MostReadNews />
-            <Gallery />
-            <Footer />
-        </div>
-    );
-}
+export default function LandingPage() {
+
+  return (
+    <> 
+      <Newsletter />
+      <Toaster richColors closeButton position="top-right" />
+      <Hero />
+      <PresentationIcons />
+      <Novelty />
+      <Communities />
+      <Agroecology />
+      <MostReadNews />
+      <Gallery />
+      <Footer />
+    </>
+  );
+};
