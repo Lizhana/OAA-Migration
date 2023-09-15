@@ -1,10 +1,12 @@
 const mailchimp = require("./Mailchimp");
 const mailSettings = require("../utils/Nodemailer");
+const { Subscribers } = require("../db")
 
 //Obtiene toda la meta información de las listas en Mailchimp
 const getSubscribers = async (req, res) => {
   try {
-    const response = await mailchimp.lists.getAllLists();
+    // const response = await mailchimp.lists.getAllLists();
+    const response = await Subscribers.findAll()
     res.status(200).json(response);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -13,10 +15,9 @@ const getSubscribers = async (req, res) => {
 
 //Obtiene todos los contactos de una lista en Mailchimp
 const getMembers = async (req, res) => {
-  const { listId } = req.params;
-  console.log(listId);
+  const { listId, subscriberHash } = req.params;
   try {
-    const response = await mailchimp.lists.getListMembersInfo(listId);
+    const response = await mailchimp.lists.getListMember(listId, subscriberHash);
     res.status(200).json(response);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -25,29 +26,30 @@ const getMembers = async (req, res) => {
 
 //Crea un contacto en una lista en Mailchimp
 const postMembers = async (req, res) => {
-  const { listId } = req.params;
-  const { name, email, phone } = req.body;
-  if (!name || !email || !phone) {
+  // const { listId } = req.params;
+  const { name, email } = req.body;
+  if (!name || !email) {
     return res.status(400).json({ error: "Faltan datos" });
   }
   try {
-    const searchResult = await mailchimp.searchMembers.search(listId, {
-      query: email,
-    });
-    if (searchResult.exact_matches.members.length > 0) {
-      return res.status(400).json({ error: "Ya existe el suscriptor" });
-    }
+    // const searchResult = await mailchimp.lists.getListMember(listId, email);
+    // if (searchResult.exact_matches.members.length > 0) {
+    //   return res.status(400).json({ error: "Ya existe el suscriptor" });
+    // }
 
-    const memberData = {
-      email_address: email,
-      merge_fields: {
-        FNAME: name,
-        PHONE: phone,
-      },
-      status: "subscribed",
-    };
+    // const memberData = {
+    //   email_address: email,
+    //   status: "subscribed",
+    //   merge_fields: {
+    //     FNAME: name
+    //   }
+    // };
 
-    const response = await mailchimp.lists.addListMember(listId, memberData);
+    // const response = await mailchimp.lists.addListMember(listId, memberData);
+    const subscriberFound = await Subscribers.findOne({ where: { email } });
+    if (subscriberFound) res.status(500).json({ error: "Ya estás suscripto" });
+
+    const newSubscriber = await Subscribers.create({ name, email });
 
     const transporter = mailSettings.transporter;
     const mailWelcome = mailSettings.mailWelcome(email);
@@ -58,12 +60,9 @@ const postMembers = async (req, res) => {
         console.log("Correo enviado con éxito.");
       }
     });
-    res.status(201).json(response);
+    res.status(201).json(newSubscriber);
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({ error: "Ha ocurrido un error al agregar el suscriptor" });
   }
 }; //POST - http://localhost:3001/subscribers/members/1b8c4df414
 
