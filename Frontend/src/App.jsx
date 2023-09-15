@@ -49,12 +49,12 @@ function App() {
         <Route path="/novelties" element={<Novelties />} />
         <Route path="/communities" element={<Communities />} />
         <Route path="/newsletter" element={<Newsletter />} />
-        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/galeria" element={<Gallery />} />
         <Route path="/naturalezaSomos" element={<NaturalezaSomos />} />
         <Route path="/done" element={<Done />} />
         <Route path="/activeCases" element={<ActiveCases />} />
         <Route path="/honorific" element={<Honorific />} />        
-        <Route path="/news/:id" element={<Detail />} />
+        <Route path="/noticia/:id" element={<Detail />} />
         <Route path="/nuestro-trabajo" element={<OurWork />} />
         <Route path="/nuestro-trabajo/:id" element={<WorkDetail />} />
         <Route path="/login" element={<LoginAdmin />} />
