@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import styles from "./Detail.module.css";
-import SameCategories from "../../Components/DetailNew/SameCategorie";
-import DetailNew from "../../Components/DetailNew/DetailNew";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewDetail } from "../../stateManagement/actions/panelAdmin/news.actions";
@@ -9,7 +7,12 @@ import {
   threNewsCategory,
   threNewsRecentAction,
 } from "../../stateManagement/actions/newsDetailActions/newsDetailActions";
-import RecentNews from "../../Components/DetailNew/RecentNews";
+
+// Components
+import DetailNew from "../../Components/DetailNew/DetailNew";
+import DetailNewsletter from "../../Components/DetailRight/Newsletter/Newsletter";
+import SameCategories from "../../Components/DetailRight/SameCategories/SameCategories";
+import RecentNews from "../../Components/DetailRight/RecentNews/RecentNews";
 
 export default function Detail() {
   const { id } = useParams(),
@@ -39,6 +42,7 @@ export default function Detail() {
         <DetailNew newDetail={newDetail} />
       </div>
       <div className={styles["detail-right"]}>
+        <DetailNewsletter />
         <SameCategories threeCategories={threeCategories} />
         <RecentNews threeRecents={threeRecents} />
       </div>

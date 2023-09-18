@@ -1,15 +1,5 @@
-.container{
-  width: 30%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
 .divContainer{
-  /* display: flex; */
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center; 
@@ -85,14 +75,4 @@
 .introduction-news {
   font-size: 0.8rem;
   margin-left: 1rem;
-}
-
-
-@media screen and (max-width: 900px) {
-  .container {
-      float: none;
-      height: 50vh;
-      width: 80%;
-      margin-top: 0;
-  }
 }
