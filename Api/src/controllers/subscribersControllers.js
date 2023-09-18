@@ -1,87 +1,67 @@
-const mailchimp = require("./Mailchimp");
+const { Subscribers } = require("../db")
 const mailSettings = require("../utils/Nodemailer");
+const MailerLite = require("@mailerlite/mailerlite-nodejs").default;
 
-//Obtiene toda la meta información de las listas en Mailchimp
+const mailerlite = new MailerLite({
+  api_key: process.env.MAILER_LITE_API_KEY
+});
+
 const getSubscribers = async (req, res) => {
   try {
-    const response = await mailchimp.lists.getAllLists();
-    res.status(200).json(response);
+    const { data: { data: allSubscribers } } = await mailerlite.subscribers.get()
+    return res.status(200).json(allSubscribers);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
-}; //GET - http://localhost:3001/subscribers
+}; 
 
-//Obtiene todos los contactos de una lista en Mailchimp
-const getMembers = async (req, res) => {
-  const { listId } = req.params;
-  console.log(listId);
+const getCountSubscribers = async (req, res) => {
   try {
-    const response = await mailchimp.lists.getListMembersInfo(listId);
-    res.status(200).json(response);
+    const { data: countSubs } = await mailerlite.subscribers.getCount();
+    return res.status(200).json(countSubs);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
-}; //GET - http://localhost:3001/subscribers/members/1b8c4df414
+}
 
-//Crea un contacto en una lista en Mailchimp
-const postMembers = async (req, res) => {
-  const { listId } = req.params;
-  const { name, email, phone } = req.body;
-  if (!name || !email || !phone) {
-    return res.status(400).json({ error: "Faltan datos" });
-  }
+const postSubscriber = async (req, res) => {
   try {
-    const searchResult = await mailchimp.searchMembers.search(listId, {
-      query: email,
-    });
-    if (searchResult.exact_matches.members.length > 0) {
-      return res.status(400).json({ error: "Ya existe el suscriptor" });
-    }
+    const { name, email } = req.body;
+    if (!email) return res.status(400).json({ error: "El email es requerido" });
 
-    const memberData = {
-      email_address: email,
-      merge_fields: {
-        FNAME: name,
-        PHONE: phone,
-      },
-      status: "subscribed",
-    };
+    const subscriberFound = await Subscribers.findOne({ where: { email } });
+    if (subscriberFound) res.status(500).json({ error: "Ya estás suscripto" });
 
-    const response = await mailchimp.lists.addListMember(listId, memberData);
+    
+    const { data: { data } } = await mailerlite.subscribers.createOrUpdate({ email })
 
-    const transporter = mailSettings.transporter;
-    const mailWelcome = mailSettings.mailWelcome(email);
-    transporter.sendMail(mailWelcome, (error, info) => {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log("Correo enviado con éxito.");
-      }
-    });
-    res.status(201).json(response);
+    const newSubscriber = await Subscribers.create({ name, email: data.email, mailerLiteId: data.id });
+
+    return res.status(201).json(newSubscriber);
   } catch (error) {
-    console.log(error);
-    res
-      .status(500)
-      .json({ error: "Ha ocurrido un error al agregar el suscriptor" });
+    return res.status(500).json({ error: error.message });
   }
-}; //POST - http://localhost:3001/subscribers/members/1b8c4df414
+};
 
-//Elimina un contacto en una lista en Mailchimp
-const deleteMembers = async (req, res) => {
-  const { listId, id } = req.params;
-  console.log(listId, id);
+const deleteSubscriber = async (req, res) => {
+  const { email } = req.body;
   try {
-    const response = await mailchimp.lists.deleteListMember(listId, id);
-    res.status(200).json(response);
+    const subscriberFound = await Subscribers.findOne({ where: { email } });
+    if (!subscriberFound) res.status(500).json({ error: "No se ha encontrado el suscriptor" });
+
+    await Subscribers.destroy({ where: { email } });
+
+    await mailerlite.subscribers.delete(subscriberFound.mailerLiteId);
+
+    return res.status(200).json("Suscriptor eliminado");
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
-}; //DELETE - http://localhost:3001/subscribers/members/1b8c4df414/14c805afbd9d83dfd9ab1f551c4f54d2
+}; 
 
 module.exports = {
   getSubscribers,
-  getMembers,
-  postMembers,
-  deleteMembers,
+  getCountSubscribers,
+  postSubscriber,
+  deleteSubscriber,
 };

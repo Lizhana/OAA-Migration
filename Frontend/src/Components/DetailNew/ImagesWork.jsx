@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 export default function SwipeableTextMobileStepper({ newDetail }) {
-  const images = newDetail?.image;
   const sliderRef = useRef(null);
 
   const settings = {
@@ -29,7 +28,7 @@ export default function SwipeableTextMobileStepper({ newDetail }) {
   return (
     <div>
       <Slider {...settings} ref={sliderRef}>
-        {images?.map((step, index) => (
+        {newDetail?.images?.map((step, index) => (
           <div key={step?.label}>
             <img src={step?.url} alt={step?.label} width='100%' />
             <p>{step?.caption}</p>

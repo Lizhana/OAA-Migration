@@ -1,9 +1,9 @@
 const { DataTypes } = require("sequelize");
 const { isValidVideo, isValidMultimedia } = require("../utils/validate");
 
-const categories = ["Imagen", "Video"];
-const platformVideo = ["YouTube", "Other"];
-const typeMultimedia = ["Audio", "PDF"];
+const categories = ["imagen", "video"];
+// const platformVideo = ["YouTube", "Other"];
+// const typeMultimedia = ["Audio", "PDF"];
 
 module.exports =sequelize => { sequelize.define(
   "Galleries",
@@ -41,14 +41,8 @@ module.exports =sequelize => { sequelize.define(
     description: {
       type: DataTypes.TEXT('long'),
     },
-    image: {
-      type: DataTypes.JSON
-    },
-    video: {
-      type: DataTypes.JSON
-    },
-    multimedia: {
-      type: DataTypes.JSON
+    resource: {
+      type: DataTypes.TEXT('long'),
     },
     labels: {
       type: DataTypes.JSON

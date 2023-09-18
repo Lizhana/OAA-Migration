@@ -3,15 +3,13 @@ import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import AlertWindow from "./Components/Alerts/AlertWindow";
 import AboutUs from "./Pages/AboutUs/AboutUs";
-import Newsletter from "./Components/LandingPage/Newsletter/Newsletter";
-
 
 import ActiveCases from "./Pages/ActiveCases/ActiveCases";
 import Communities from "./Pages/Communities/Communities";
 import Detail from "./Pages/Detail/Detail";
 import Done from "./Pages/Done/Done";
 import Error404 from "./Pages/Error404/Error404";
-import Galery from "./Pages/Galery/Galery";
+import Gallery from "./Pages/Gallery/Gallery";
 import Honorific from "./Pages/Honorific/Honorific";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Loader from "./Components/Loader/Loader";
@@ -48,13 +46,12 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/novelties" element={<Novelties />} />
         <Route path="/communities" element={<Communities />} />
-        <Route path="/newsletter" element={<Newsletter />} />
-        <Route path="/galery" element={<Galery />} />
+        <Route path="/galeria" element={<Gallery />} />
         <Route path="/naturalezaSomos" element={<NaturalezaSomos />} />
         <Route path="/done" element={<Done />} />
         <Route path="/activeCases" element={<ActiveCases />} />
         <Route path="/honorific" element={<Honorific />} />        
-        <Route path="/news/:id" element={<Detail />} />
+        <Route path="/noticia/:id" element={<Detail />} />
         <Route path="/nuestro-trabajo" element={<OurWork />} />
         <Route path="/nuestro-trabajo/:id" element={<WorkDetail />} />
         <Route path="/login" element={<LoginAdmin />} />

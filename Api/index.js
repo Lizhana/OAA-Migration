@@ -5,7 +5,7 @@ const { transport } = require("./src/utils/email.utils");
 const { PORT } = process.env;
 
 
-conn.sync({alter: false}).then(async ()=>{
+conn.sync({alter: true}).then(async ()=>{
     await transport.verify();
     console.log("nodemailer conectado exitosamente.");
 }).then(()=>{

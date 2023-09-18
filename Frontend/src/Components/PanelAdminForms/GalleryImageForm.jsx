@@ -49,7 +49,7 @@ export default function GalleryImageForm() {
     { quill, quillRef } = useQuill({ modules: { toolbar } }),
     { oneGallery, idOneGallery, edit } = useSelector((state) => state.gallery),
     { form, errors, setForm, setErrors, changeHandler, resetHandler } = useForm(
-      "galeryImageForm",
+      "galleryImageForm",
       initialForm,
       validationsGallery
     ),

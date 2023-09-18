@@ -3,7 +3,6 @@ require("dotenv").config();                         //Requerimos el .env
 const express = require("express");                 //Requerimos Express
 const cors = require("cors");                       //Requerimos 'cors
 const routes = require("./routes/index");           //rutas del Backend en el index
-require("dotenv").config();
 const { CLIENT_URL } = process.env;
 const app = express();
 

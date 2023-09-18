@@ -3,6 +3,19 @@ const { News } = require('../db');
 const getAllNews = async () => {
   try {
     const news = await News.findAll();
+    // const parsedNews = news.map((item) => {
+    //   const parsedImage = JSON.parse(item.image);
+    //   const parsedMultimedia = JSON.parse(item.multimedia || '[]');
+    //   const parsedlabels = JSON.parse(item.labels || '{}');
+
+    //   return {
+    //     ...item.toJSON(),
+    //     image: parsedImage,
+    //     multimedia: parsedMultimedia,
+    //     labels: parsedlabels,
+    //   };
+    // });
+
     return news.reverse();
   } catch (error) {
     console.error(error);
@@ -16,8 +29,20 @@ const getAllNews = async () => {
 const getActiveNews = async () => {
   try {
     const news = await News.findAll({ where: { isDeleted: false } });
+    const parsedNews = news.map((item) => {
+      const parsedImage = JSON.parse(item.image);
+      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
+      const parsedlabels = JSON.parse(item.label || '{}');
 
-    return news;
+      return {
+        ...item.toJSON(),
+        image: parsedImage,
+        multimedia: parsedMultimedia,
+        labels: parsedlabels,
+      };
+    });
+
+    return parsedNews;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -34,6 +59,17 @@ const getNewsById = async (id) => {
     if (!news) {
       throw { status: 404, message: 'La noticia no se encontró' };
     }
+
+    // const parsedImage = JSON.parse(news.image);
+    // const parsedMultimedia = JSON.parse(news.multimedia || '[]');
+    // const parsedLabels = JSON.parse(news.labels || '{}');
+
+    // const parsedNews = {
+    //   ...news.toJSON(),
+    //   image: parsedImage,
+    //   multimedia: parsedMultimedia,
+    //   labels: parsedLabels,
+    // };
 
     return news;
   } catch (error) {
@@ -57,7 +93,18 @@ const getActiveNewsById = async (id) => {
       throw { status: 404, message: 'La noticia no se encontró' };
     }
 
-    return news;
+    const parsedImage = JSON.parse(news.image);
+    const parsedMultimedia = JSON.parse(news.multimedia || '[]');
+    const parsedLabesl = JSON.parse(news.labels || '{}');
+
+    const parsedNews = {
+      ...news.toJSON(),
+      image: parsedImage,
+      multimedia: parsedMultimedia,
+      labels: parsedLabesl,
+    };
+
+    return parsedNews;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -77,7 +124,20 @@ const getThreeNews = async () => {
       return null;
     }
 
-    return news;
+    const parsedNews = news.map((item) => {
+      const parsedImage = JSON.parse(item.image);
+      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
+      const parsedLabels = JSON.parse(item.labels || '{}');
+
+      return {
+        ...item.toJSON(),
+        image: parsedImage,
+        multimedia: parsedMultimedia,
+        labels: parsedLabels,
+      };
+    });
+
+    return parsedNews;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -99,7 +159,20 @@ const getThreeNewsByCategory = async (category) => {
       return null;
     }
 
-    return news;
+    const parsedNews = news.map((item) => {
+      const parsedImage = JSON.parse(item.image);
+      const parsedMultimedia = JSON.parse(item.multimedia || '[]');
+      const parsedLabels = JSON.parse(item.labels || '{}');
+
+      return {
+        ...item.toJSON(),
+        image: parsedImage,
+        multimedia: parsedMultimedia,
+        labels: parsedLabels,
+      };
+    });
+
+    return parsedNews;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -109,9 +182,37 @@ const getThreeNewsByCategory = async (category) => {
   }
 };
 
-const createNews = async (newsData) => {
+const createNews = async ({
+  titleMain,
+  date,
+  category,
+  author,
+  urlAuthor,
+  location,
+  introduction,
+  images,
+  description,
+  multimedia,
+  visitorCounter,
+  extraData,
+  labels,
+}) => {
   try {
-    const createdNews = await News.create(newsData);
+    const createdNews = await News.create({
+      titleMain,
+      date,
+      category,
+      author,
+      urlAuthor,
+      location,
+      introduction,
+      images,
+      description,
+      multimedia,
+      visitorCounter,
+      extraData,
+      labels,
+    });
 
     return createdNews;
   } catch (error) {
