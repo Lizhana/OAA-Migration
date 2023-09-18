@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 import Styles from "./DetailNews.module.css";
-import SwipeableTextMobileStepper from "./ImagesWork";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -20,6 +22,25 @@ export default function DetailNew({ newDetail }) {
     readOnly: true,
     modules: { toolbar: false },
   });
+  const sliderRef = useRef(null);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
+  const handleNext = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const handleBack = () => {
+    sliderRef.current.slickPrev();
+  };
 
   useEffect(() => {
     try {
@@ -38,42 +59,49 @@ export default function DetailNew({ newDetail }) {
       <span className={Styles["detail-introduction"]} >{newDetail.introduction}</span>
       <div className={Styles["detail-info"]}>
         <span className={Styles["detail-info_category"]} >{newDetail.category}</span>
-        <p className={Styles["detail-info_date"]}> 
+        <p className={Styles["detail-info_date"]}>
           {newDetail.date}
           <a href={newDetail.urlAuthor ? newDetail.urlAuthor : ""} >
             <span className={Styles["detail-info_author"]}>Por: {newDetail.author}</span>
           </a>
         </p>
       </div>
+
+
       <div className={Styles.divImageDetail}>
-        <SwipeableTextMobileStepper
-          newDetail={newDetail ? newDetail : "cargando..."}
-        />
+        <Slider {...settings} ref={sliderRef}>
+          {newDetail?.images?.map((step, index) => (
+            <div key={step?.label}>
+              <img src={step?.url} alt={step?.label} width='100%' />
+              <p>{step?.caption}</p>
+            </div>
+          ))}
+        </Slider>
+      </div>
 
-        <div className={Styles.containerIcons} >
-          {/* Compartir en Facebook */}
-          <FacebookShareButton url={shareUrl} >
-            <BsFacebook className={Styles.bsFacebook} />
-          </FacebookShareButton>
+      <div className={Styles.containerIcons} >
+        {/* Compartir en Facebook */}
+        <FacebookShareButton url={shareUrl} >
+          <BsFacebook className={Styles.bsFacebook} />
+        </FacebookShareButton>
 
-          {/* Compartir en Twitter */}
-          <TwitterShareButton url={shareUrl}>
-            <AiFillTwitterCircle className={Styles.aiFillTwitterCircle} />
-          </TwitterShareButton>
+        {/* Compartir en Twitter */}
+        <TwitterShareButton url={shareUrl}>
+          <AiFillTwitterCircle className={Styles.aiFillTwitterCircle} />
+        </TwitterShareButton>
 
-          {/* Compartir en WhatsApp */}
-          <WhatsappShareButton url={shareUrl}>
-            <IoLogoWhatsapp className={Styles.ioLogoWhatsapp} />
-          </WhatsappShareButton>
+        {/* Compartir en WhatsApp */}
+        <WhatsappShareButton url={shareUrl}>
+          <IoLogoWhatsapp className={Styles.ioLogoWhatsapp} />
+        </WhatsappShareButton>
 
-          {/* Compartir por correo electrónico */}
-          <EmailShareButton url={shareUrl}>
-            <SiGmail className={Styles.siGmail} />
-          </EmailShareButton>
-        </div>
-        <div>
-          <p>{newDetail.location ? newDetail.location : ""}</p>
-        </div>
+        {/* Compartir por correo electrónico */}
+        <EmailShareButton url={shareUrl}>
+          <SiGmail className={Styles.siGmail} />
+        </EmailShareButton>
+      </div>
+      <div>
+        <p>{newDetail.location ? newDetail.location : ""}</p>
       </div>
       {newDetail?.description && newDetail.description.charAt(0) === "{" ? (
         <article ref={quillRef}></article>
