@@ -1,8 +1,7 @@
 .footer {
-    width: 100%;
     background: #0C4B76;
-    margin: 50px 0 0 0;
-    padding: 10px 0;
+    margin: 30px 0 0 0;
+    border-radius: 20px 20px 0 0;
 }
 .footer__container {
     width: 1200px;
@@ -10,28 +9,23 @@
     padding: 10px 0;
 }
 .logo__container {
-    border-radius: 10px;
-    background: #FBE9C9;
-    padding: 2px 10px;
-    margin: 0 auto;
-    /* height: 50px; */
-    width: 450px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    border-right: 1px solid #ced4da;
 }
 .dates {
-    display: grid;
+    display: flex;
+    padding: 20px;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
 }
 .socialNetwork {
     margin: 20px 0;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    flex-direction: column;
 }
 .footer__contact {
+    font-size: 15px;
     gap: 5px;
     padding: 0 0 0 20px;
     color: #f8f9fa;
@@ -39,6 +33,7 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    padding-left: 40px;
 }
 .footer__iconContact {
     font-size: 15px;
@@ -47,6 +42,8 @@
 .copyRight {
     color: #f8f9fa;
     text-align: center;
+    border-top: 1px solid;
+    padding-top: 10px;
 }
 .henryProjects {
     text-decoration: none;

@@ -1,7 +1,6 @@
 import React from 'react';
 import Hero from "../../Components/LandingPage/Hero/Hero";
 import PresentationIcons from "../../Components/LandingPage/PresentationIcons/PresentationIcons";
-import Novelty from "../../Components/LandingPage/Novelty/Novelty";
 import Communities from "../../Components/LandingPage/Communities/Communities";
 import Agroecology from "../../Components/LandingPage/Agroecology/Agroecology";
 import MostReadNews from "../../Components/LandingPage/MostReadNews/MostReadNews";
@@ -16,11 +15,10 @@ export default function LandingPage() {
       <Newsletter />
       <Hero />
       <PresentationIcons />
-      <Novelty />
       <Communities />
-      <Agroecology />
       <MostReadNews />
       <Galery />
+      <Agroecology />      
       <Footer />
     </>
   );
