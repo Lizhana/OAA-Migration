@@ -39,9 +39,11 @@
 .item {
   text-decoration: none;
   text-decoration: none;
-  color: green;
-  letter-spacing: 2.5px;
+  color: #0C775D;
+  letter-spacing: 2px;
+  font-weight: 500;
   transition: 0.3s;
+  font-size: 15px
 }
 .item:hover {
   color: rgb(0, 70, 0);
@@ -53,9 +55,9 @@
   border: none;
   background-image: linear-gradient(
     to right,
-    #376b15 0%,
-    #31640f 51%,
-    #244d09 100%
+    #0C775D 0%,
+    #0a5c47 51%,
+    #085542 100%
   );
   padding: 10px 10px;
   text-align: center;
@@ -81,4 +83,31 @@
 }
 .invisible {
   display: none;
+}
+
+@media (max-width: 768px) {
+  /* Reduzco el padding del contenedor principal */
+  .container {
+    padding: 0 10px;
+  }
+
+  /* Reduzco el tamaño de fuente de los elementos de navegación */
+  .item {
+    font-size: 14px;
+  }
+
+  /* Alineo elementos de navegación en una columna */
+  .container__items {
+    flex-direction: column;
+  }
+
+  /* Aumento el espacio entre elementos en dispositivos móviles */
+  .item {
+    margin-bottom: 10px;
+  }
+
+  /* Espacio adicional debajo del logo en dispositivos móviles */
+  .container__logo {
+    margin-bottom: 20px;
+  }
 }

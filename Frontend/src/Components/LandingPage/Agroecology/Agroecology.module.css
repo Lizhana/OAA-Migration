@@ -1,32 +1,103 @@
-.agroecology {
-  width: 1000px;
-  position: relative;
-  margin: 0 auto;
-  padding: 50px 0;
-}
-.agroecology p {
-  text-align: center;
-  margin: 0 0 10px 0;
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
-/*----------Landing----------*/
-.landing {
-  height: 333px;
+.title {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+  color: #0C775D;
+}
+
+.sub {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contPrincipal {
+  padding: 20px;
   width: 100%;
-  position: absolute;
+  min-height: 500px;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 1;
+  flex-direction: column;
+  margin: 50px 20px 20px 20px
 }
-.landing p {
-  padding: 10px 20px;
-  background: #219ebc;
-  margin: 30px;
-  color: #f1faee;
-  font-size: 20px;
+
+.contUp {
+  display: flex;
+  justify-content:space-around;
+  margin-bottom: 20px;
+  padding-right: 20px;
 }
-.images {
-  height: 333px;
-  width: 1000px;
+
+.imgUp {
+  padding-top: 20px;
+  background-image: url('../../../assets/Imagen5.png');
+  background-size: cover; 
+  background-position: center;
+  border-radius: 20px 0 0 20px;
+}
+
+.contText {
+  width: 200px;
+  background-color: #FBE9C9;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.contDown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contMini {
+  display: flex;
+  flex-direction: column;
+  width: calc(25% - 10px);
+  background-color: #FBE9C9;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  margin-right: 20px;
+  background-size: cover;
+}
+.contText2{
+  padding: 20px;
+}
+.contMini1 {
+  background-image: url('../../../assets/Imagen3.png');
+  background-size: cover; 
+  background-position: center;
+  border-radius: 20px 20px 0 0;
+  height: 120px;
+}
+.contMini2 {
+  background-image: url('../../../assets/Imagen4.png');
+  background-size: cover; 
+  background-position: center;
+  border-radius: 20px 20px 0 0;
+  height: 120px;
+}
+.contMini3 {
+  background-image: url('../../../assets/Imagen2.png');
+  background-size: cover; 
+  background-position: center;
+  border-radius: 20px 20px 0 0;
+  height: 120px;
+}
+
+.h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #0C775D;
+}
+.h3 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
 }
