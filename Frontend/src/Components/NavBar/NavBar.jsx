@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from '../../Components/LandingPage/Footer/Logo/Logo'
+import Logo from './Logo/Logo'
 import { FaUser } from 'react-icons/fa';
 import styles from "./NavBar.module.css";
 

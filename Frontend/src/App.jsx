@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import AlertWindow from "./Components/Alerts/AlertWindow";
+import { Toaster } from "sonner";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 
 import ActiveCases from "./Pages/ActiveCases/ActiveCases";
@@ -48,6 +49,7 @@ function App() {
       <Loader />
       <NavBar />
       <AlertWindow />
+      <Toaster richColors closeButton position="top-right" />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/aboutUs" element={<AboutUs />} />

@@ -1,35 +1,44 @@
 .socialNetworks {
     height: 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border-right: 1px solid #ced4da;
-    padding: 0 20px 0 0;
+    padding: 0 40px 0 0;
 }
+
 .socialNetworks h3 {
+    font-size: 15px;
     letter-spacing: 2px;
+    color: white;
+    margin-bottom: 20px;
 }
+
 .socialNetworks__container {
     gap: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .borderSocialNetworks {
-    height: 65px;
-    width: 65px;
-    padding: 3px 0 0 0;
+    height: 40px;
+    width: 40px;
+    padding: 3px 0 0 9px;
     border: 1px solid #f8f9fa;
     border-radius: 50%;
-    transition: 100ms all ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.3s;
 }
 .borderSocialNetworks:hover {
     transform: scale(1.1);
 }
 .iconSocialNetworks {
+    height: 20px;
+    width: 20px;
     font-size: 35px;
     color: #f8f9fa;
 }

@@ -1,68 +1,73 @@
 @import url('../../variables.css');
 
 .containerWork {
-    width: 60%;
-    margin: 0 auto;
-    
-  }
-  
-  .titleWork {
-    text-align: center;
-    margin: 2rem 0 1rem;
-    font-size: 1.5rem;
-    animation: pulse 8s infinite;
-    box-shadow: 3px 2px 8px rgba(22, 157, 24, 0.638);
-  }
-  
-  .contentWork {
-    margin: 2rem 0;
-    line-height: 1.5;
-    text-align: justify;
-  }
+  width: 60%;
+  margin: 0 auto;
 
-  .textT{
-    font-size: 1rem !important;
-  }
+}
 
-  .multimediaWork {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2rem;
-  }
+.titleWork {
+  text-align: center;
+  margin: 2rem 0 1rem;
+  font-size: 1.5rem;
+  animation: pulse 8s infinite;
+  box-shadow: 3px 2px 8px rgba(22, 157, 24, 0.638);
+}
 
-  .multimediaWorkh4 {
-    margin: 1rem;
-    padding: 1rem;
-    width: 100%;
-  }
-  
-  .typeWork {
-    margin: 1rem;
-    width: 250px;
-    height: 150px;
-    justify-content:center;
-    align-items: center; 
-    background-color: #f0f0f0;
-    border-radius: 5px; 
-  }
+.contentWork {
+  margin: 2rem 0;
+  line-height: 1.5;
+  text-align: justify;
+}
 
-  .typeWork:hover {
-    transform: scale(1.05);
-  }
-  
-  .typeWorkh6 {
-    font-size: 1rem;
-    text-align:justify;
-    margin: 0;
-    text-decoration: none;
-  }
-  
-  .typeWork audio {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    text-decoration: none;
-  }
-  
-  
+.divImageDetail {
+  height: auto;
+  max-width: 600px;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.textT {
+  font-size: 1rem !important;
+}
+
+.multimediaWork {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.multimediaWorkh4 {
+  margin: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.typeWork {
+  margin: 1rem;
+  width: 250px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.typeWork:hover {
+  transform: scale(1.05);
+}
+
+.typeWorkh6 {
+  font-size: 1rem;
+  text-align: justify;
+  margin: 0;
+  text-decoration: none;
+}
+
+.typeWork audio {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  text-decoration: none;
+}

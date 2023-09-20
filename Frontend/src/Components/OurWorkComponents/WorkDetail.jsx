@@ -1,16 +1,36 @@
-import React from "react";
-import SwipeableTextMobileStepper from "../DetailNew/ImagesWork";
+import { useRef } from "react";
 import Styles from "./detailWork.module.css";
 
 export default function WorkDetailComponent({ onlyAWork }) {
+  const sliderRef = useRef(null);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
   return (
     <div className={Styles.containerWork}>
       <div className={Styles.titleWork}>
         <h3>{onlyAWork?.titleMain}</h3>
       </div>
 
-      <SwipeableTextMobileStepper newDetail={onlyAWork} />
-      <div></div>
+      <div className={Styles.divImageDetail}>
+        <Slider {...settings} ref={sliderRef}>
+          {onlyAWork?.images?.map((step, index) => (
+            <div key={step?.label}>
+              <img src={step?.url} alt={step?.label} width='100%' />
+              <p>{step?.caption}</p>
+            </div>
+          ))}
+        </Slider>
+      </div>
+
       <div className={Styles.contentWork}>
         {onlyAWork?.content && onlyAWork?.content.charAt(0) === "{" ? (
           <article ref={quillRef} className={Styles.textT}></article>
