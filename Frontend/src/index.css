@@ -49,6 +49,10 @@ h6 {
   font-size: 0.67rem;
 }
 
+a.activeBar {
+  text-decoration: underline;
+}
+
 *::-webkit-scrollbar {
   width: 0.25rem;
   background-color: transparent;
@@ -174,10 +178,6 @@ textarea {
 
 .blue-icon {
   filter: var(--blue-filter);
-}
-
-.white-icon {
-  filter: var(--white-filter);
 }
 
 .invisible {

@@ -40,61 +40,64 @@ export default function galleryReducer(state = initialState, action) {
     case CLEAR_ONE_GALLERY: //Clear get ID
       return { ...state, oneGallery: {} };
     case GALLERY_FILTERS: // Filters
-      const { status, order, category, search } = payload;
-      let filteredGallery = [...state.allGalleries];
+    {
+        const { status, order, category, search } = payload;
+        let filteredGallery = [...state.allGalleries];
+        console.log(order)
 
-      if (status === "active") {
-        filteredGallery = filteredGallery.filter(
-          (a) => a["isDeleted"] === false
-        );
-      } else if (status === "inactive") {
-        filteredGallery = filteredGallery.filter(
-          (a) => a["isDeleted"] === true
-        );
-      }
-
-      if (search) {
-        filteredGallery = filteredGallery.filter((a) => {
-          const searchLowerCase = search.toLowerCase();
-          const titleMain = a["titleMain"].toLowerCase();
-          return (
-            a["_id"].includes(searchLowerCase) ||
-            titleMain.includes(searchLowerCase)
+        if (status === "active") {
+          filteredGallery = filteredGallery.filter(
+            (a) => a["isDeleted"] === false
           );
-        });
-      }
+        } else if (status === "inactive") {
+          filteredGallery = filteredGallery.filter(
+            (a) => a["isDeleted"] === true
+          );
+        }
 
-      if (category !== "all") {
-        filteredGallery = filteredGallery.filter(
-          (a) => a["category"] === category
-        );
-      }
+        if (search) {
+          filteredGallery = filteredGallery.filter((a) => {
+            const searchLowerCase = search.toLowerCase();
+            const titleMain = a["titleMain"].toLowerCase();
+            return (
+              a["_id"].includes(searchLowerCase) ||
+                titleMain.includes(searchLowerCase)
+            );
+          });
+        }
 
-      if (order === "a-z") {
-        filteredGallery.sort((a, b) => a.titleMain.localeCompare(b.titleMain));
-      } else if (order === "z-a") {
-        filteredGallery
-          .sort((a, b) => a.titleMain.localeCompare(b.titleMain))
-          .reverse();
-      } else if (order === "latest") {
-        filteredGallery.sort(
-          (a, b) =>
-            new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime()
-        );
-      } else if (order === "oldest") {
-        filteredGallery
-          .sort(
+        if (category !== "all") {
+          filteredGallery = filteredGallery.filter(
+            (a) => a["category"] === category
+          );
+        }
+
+if (order === "a-z") {
+  filteredGallery.sort((a, b) => a.titleMain.localeCompare(b.titleMain));
+} else if (order === "z-a") {
+  filteredGallery.sort((a, b) => b.titleMain.localeCompare(a.titleMain));
+}  else if (order === "latest") {
+          filteredGallery.sort(
             (a, b) =>
               new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime()
-          )
-          .reverse();
-      }
+          );
+        } else if (order === "oldest") {
+          filteredGallery
+            .sort(
+              (a, b) =>
+                new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime()
+            )
+            .reverse();
+        }
 
-      return {
-        ...state,
-        galleries: [...filteredGallery],
-        filters: { ...payload },
-      };
+        console.log(payload.order)
+
+        return {
+          ...state,
+          galleries: [...filteredGallery],
+          filters: { ...payload, order: payload.order },
+        };
+      }
     case CREATE_GALLERY: // Post
       return {
         ...state,
@@ -140,10 +143,10 @@ export default function galleryReducer(state = initialState, action) {
       return { ...state };
     case DELETE_GALLERY: // Delete
       const deletedAllGallery = state.allGalleries.filter(
-        (gallery) => gallery._id !== payload
+        (gallery) => gallery.id !== payload
       );
       const deletedGallery = state.galleries.filter(
-        (gallery) => gallery._id !== payload
+        (gallery) => gallery.id !== payload
       );
       return {
         ...state,
@@ -154,3 +157,6 @@ export default function galleryReducer(state = initialState, action) {
       return state;
   }
 }
+
+
+export const selectGallery = (state) => state.galleries;

@@ -100,7 +100,7 @@ export default function GalleryVideoForm() {
     setImage([]);
     setLabels([]);
     dispatch(clearOneGallery());
-    navigate("/panel-admin");
+    navigate(-1);
   };
 
   // Función para agregar etiquetas
@@ -135,7 +135,7 @@ export default function GalleryVideoForm() {
         url: "",
         platform: "",
       });
-      navigate("/panel-admin");
+      navigate(-1);
     }
   };
 
@@ -162,7 +162,7 @@ export default function GalleryVideoForm() {
         url: "",
         platform: "",
       });
-      navigate("/panel-admin");
+      navigate(-1);
     }
   };
 

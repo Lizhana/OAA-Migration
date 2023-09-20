@@ -75,3 +75,9 @@ export const ONE_SUBSCRIPTION = "ONE_SUBSCRIPTION";
 export const CLEAR_ONE_SUBSCRIPTION = "SUBSCLEAR_ONE_CRIPTION";
 export const SUBSCRIPTIONS_FILTERS = "SUBSCRIPTIONS_FILTERS";
 export const DELETE_SUBSCRIPTION = "DELETE_SUBSCRIPTION";
+
+// CurrentWorkingState
+// Por la complejidad y el desorden del antiguo manejo de estados decidí crear un estado que administra el estado global del menu de administrador en el que se encuentra el usuario.
+export const SYNC_STATE = "CURRENT_WORKING_STATE/SYNC_STATE";
+export const QUERY_STATE = "CURRENT_WORKING_STATE/QUERY_STATE";
+export const CLEAN_QUERY = "CURRENT_WORKING_STATE/CLEAN_QUERY";

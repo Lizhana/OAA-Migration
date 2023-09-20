@@ -1,0 +1,49 @@
+.Table {
+  z-index: 9999;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.Table button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.Table th svg {
+  position: relative;
+  top: 42%;
+  left: 10px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.Table thead {
+  background-color: var(--blue);
+  color: white;
+}
+
+.Table td, .Table th {
+  border-collapse: collapse;
+  height: 3rem;
+}
+
+.Table tbody tr:nth-child(odd) {
+  background-color: #E3EBEE;
+}
+
+.Table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.ActionContainer {
+  justify-content: center;
+  box-sizing: content-box;
+}
+
+.ActionContainer img {
+  height: 1.5rem;
+  margin: 0 .5rem;
+}
+

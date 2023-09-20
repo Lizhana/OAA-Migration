@@ -1,0 +1,19 @@
+.MainContainer {
+  display: flex;
+}
+.StatsContainer {
+  width: clamp(50rem, 70% + 5rem, 150rem);
+  margin: 0 auto;
+}
+
+.ButtonsContainer {
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.ButtonsContainer button {
+  background-color: transparent;
+  cursor: pointer;
+}

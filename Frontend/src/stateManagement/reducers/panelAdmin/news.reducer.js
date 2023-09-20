@@ -122,9 +122,9 @@ export default function newsReducer(state = initialState, action) {
       return { ...state };
     case DELETE_NEW: // Delete
       const deletedAllNews = state.allNews.filter(
-        (oneNew) => oneNew._id !== payload
+        (oneNew) => oneNew.id !== payload
       );
-      const deletedNews = state.news.filter((oneNew) => oneNew._id !== payload);
+      const deletedNews = state.news.filter((oneNew) => oneNew.id !== payload);
       return { ...state, allNews: [...deletedAllNews], news: [...deletedNews] };
     default:
       return state;

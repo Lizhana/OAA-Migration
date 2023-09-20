@@ -29,7 +29,7 @@ export default function Communities () {
     
     return (
         <div className={styles.communities}>
-            <div className={styles.introduction}>
+            {/* <div className={styles.introduction}>
                 <h3>¿Quieres saber lo que pasa en otras Comunidades?</h3>
                 <p >Te invitamos a que ingreses en nuestra Sección de Comunidades, para que conozcas las causas por las que luchan los demás, recuerda que tu puedes ser parte importante, así que sal y apoya, porque tu también eres parte de la solución</p>
             </div>
@@ -90,7 +90,7 @@ export default function Communities () {
                         <p>No hay noticias disponibles</p>
                     )}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

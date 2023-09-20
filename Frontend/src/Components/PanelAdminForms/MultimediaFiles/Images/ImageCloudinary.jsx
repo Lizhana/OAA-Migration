@@ -8,6 +8,7 @@ export default function ImageCloudinary({
   image,
   setImage,
   setError,
+  imageCloudinary
 }) {
   const [form, setForm] = useState({ url: "", caption: "" });
   const [file, setFile] = useState(null);
@@ -37,7 +38,6 @@ export default function ImageCloudinary({
   const checkHandler = async (event) => {
     event.preventDefault();
     try {
-      setError({});
       setErrors({});
       if (file) {
         setLoader(true);
@@ -54,8 +54,9 @@ export default function ImageCloudinary({
           }
         );
         const img_url = await res.json();
-        setImage([...image, { url: img_url.secure_url, caption }]);
-        setForm({ url: "", caption: "" });
+        //setImage([...image, { url: img_url.secure_url, caption }]);
+        //setForm({ url: "", caption: "" });
+        imageCloudinary(img_url.secure_url)
         setLoader(false);
         setOpen(false);
       }

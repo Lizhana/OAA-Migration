@@ -109,11 +109,6 @@ text-align: end;
 .SocialMediaContainer img {
   margin-right: 1rem;
   cursor: pointer;
-  transition: 1s;
-}
-
-.SocialMediaContainer img:hover{
-  height: 5.5rem; 
 }
 
 .LabelsContainer{
