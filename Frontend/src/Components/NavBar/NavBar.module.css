@@ -84,8 +84,6 @@
 .invisible {
   display: none;
 }
-<<<<<<< HEAD
-=======
 
 @media (max-width: 768px) {
   /* Reduzco el padding del contenedor principal */
@@ -112,5 +110,3 @@
   .container__logo {
     margin-bottom: 20px;
   }
-}
->>>>>>> 666f8020d737a5fd588134d219b791b83cb79f60
