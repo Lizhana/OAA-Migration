@@ -113,10 +113,10 @@ export default function donationsReducer(state = initialState, action) {
       return { ...state, donations: [...reactiveDonation] };
     case DELETE_DONATION: // Delete
       const deletedAllDonations = state.allDonations.filter(
-        (donation) => donation._id !== payload
+        (donation) => donation.id !== payload
       );
       const deletedDonations = state.donations.filter(
-        (donation) => donation._id !== payload
+        (donation) => donation.id !== payload
       );
       return {
         ...state,

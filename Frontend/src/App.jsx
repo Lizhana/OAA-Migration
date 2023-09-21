@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import AlertWindow from "./Components/Alerts/AlertWindow";
 import { Toaster } from "sonner";
 import AboutUs from "./Pages/AboutUs/AboutUs";
@@ -24,6 +24,13 @@ import PanelAdminForm from "./Pages/PanelAdminForm/PanelAdminForm";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import SocialForum from "./Pages/OurWork/SocialForum";
 import WorkDetail from "./Pages/OurWork/WorkDetail";
+import GalleryAdmin from "./Components/AdminDashboard/AdminViews/Gallery/Gallery";
+import Donations from "./Components/AdminDashboard/AdminViews/Donations/Donations";
+import Subscriptions from "./Components/AdminDashboard/AdminViews/Subscriptions/Subscriptions";
+import Publications from "./Components/AdminDashboard/AdminViews/Publications/Publications";
+import OurWorks from "./Components/AdminDashboard/AdminViews/OurWorks/OurWorks";
+import Radio from "./Components/AdminDashboard/AdminViews/Radio/Radio";
+import Admins from "./Components/AdminDashboard/AdminViews/Admins/Admins";
 
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
@@ -59,9 +66,17 @@ function App() {
         <Route path="/login" element={<LoginAdmin />} />
         <Route path="/foro/primer-foro-social" element={<SocialForum />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/panel-admin" element={<PanelAdmin />} />
-          <Route path="/panel-admin/:form" element={<PanelAdminForm />} />
         </Route>
+        <Route path="/panel-admin" element={<Navigate to="/panel-admin/donaciones"/>} />
+        <Route path="/panel-admin/original" element={<PanelAdmin/>}/>
+        <Route path="/panel-admin/:form" element={<PanelAdminForm />} />
+        <Route path="/panel-admin/donaciones" element={<Donations/>}/>
+        <Route path="/panel-admin/suscripciones" element={<Subscriptions/>}/>
+        <Route path="/panel-admin/nuestros-trabajo" element={<OurWorks/>}/>
+        <Route path="/panel-admin/publicaciones" element={<Publications/>}/>
+        <Route path="/panel-admin/galeria" element={<GalleryAdmin/>}/>
+        <Route path="/panel-admin/radio" element={<Radio/>}/>
+        <Route path="/panel-admin/admins" element={<Admins/>}/>
         <Route path="/login" element={<LoginAdmin />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

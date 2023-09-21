@@ -79,13 +79,6 @@ export default function PublicationsForm() {
 
   //Se ejecuta cuando newDetail cambia
   useEffect(() => {
-    if (Object.keys(newDetail).length > 0 && edit) {
-      const pdfDetail = newDetail.multimedia.filter(
-        (file) => file.type === "PDF"
-      );
-      const audioDetail = newDetail.multimedia.filter(
-        (file) => file.type === "Audio"
-      );
       setForm({
         ...form,
         titleMain: newDetail.titleMain,
@@ -96,20 +89,6 @@ export default function PublicationsForm() {
         location: newDetail.location,
         introduction: newDetail.introduction,
       });
-      setLabels(newDetail.labels);
-      setImage(newDetail.image);
-      setPdf(pdfDetail);
-      setAudio(audioDetail);
-      !!newDetail.description &&
-        quill &&
-        quill.setContents(JSON.parse(newDetail.description));
-    } else {
-      setForm(initialForm);
-      setLabels([]);
-      setImage([]);
-      setPdf([]);
-      setAudio([]);
-    }
   }, [newDetail, edit]);
 
   // Función para regresar a la pantalla anterior
@@ -119,7 +98,7 @@ export default function PublicationsForm() {
     setImage([]);
     setLabels([]);
     dispatch(clearNewDetail());
-    navigate("/panel-admin");
+    navigate(-1);
   };
 
   // Función para agregar etiquetas
@@ -156,6 +135,7 @@ export default function PublicationsForm() {
 
   // Función para editar un elemento:
   const editHandler = () => {
+    console.log("editando")
     if (Object.keys(errors).length === 0) {
       if (newDetail.isDeleted) {
         dispatch(reactiveNew(idNewDetail));
@@ -173,7 +153,7 @@ export default function PublicationsForm() {
       resetHandler();
       setImage([]);
       setLabels([]);
-      navigate("/panel-admin");
+      navigate(-1);
     }
   };
 

@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuill } from "react-quilljs";
 import useForm from "../../utils/customHooks/useForm";
@@ -25,6 +23,8 @@ import {
   editWork,
   reactiveWork,
 } from "../../stateManagement/actions/panelAdmin/ourWorks.actions";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const toolbar = [
   ["bold", "italic", "underline", "strike"],
@@ -67,27 +67,30 @@ export default function OurWorksForm() {
 
   //Se ejecuta cuando oneWork cambia
   useEffect(() => {
-    if (Object.keys(oneWork).length > 0 && edit) {
-      const pdfOneWork = oneWork.multimedia.filter(
-        (file) => file.type === "PDF"
-      );
-      const audioOneWork = oneWork.multimedia.filter(
-        (file) => file.type === "Audio"
-      );
-      setForm({
-        ...form,
-        titleMain: oneWork.titleMain,
-        date: oneWork.date,
-        progress: oneWork.isFinished ? "finished" : "in progress",
-        location: oneWork.location,
-      });
-      setLabels(oneWork.labels);
-      setImage(oneWork.image);
-      setPdf(pdfOneWork);
-      setAudio(audioOneWork);
-      !!oneWork.description &&
-        quill &&
-        quill.setContents(JSON.parse(oneWork.description));
+    if (Array.isArray(oneRadioProgram.multimedia)) {
+
+      if (Object.keys(oneWork).length > 0 && edit) {
+        const pdfOneWork = oneWork.multimedia.filter(
+          (file) => file.type === "PDF"
+        );
+        const audioOneWork = oneWork.multimedia.filter(
+          (file) => file.type === "Audio"
+        );
+        setForm({
+          ...form,
+          titleMain: oneWork.titleMain,
+          date: oneWork.date,
+          progress: oneWork.isFinished ? "finished" : "in progress",
+          location: oneWork.location,
+        });
+        setLabels(oneWork.labels);
+        setImage(oneWork.image);
+        setPdf(pdfOneWork);
+        setAudio(audioOneWork);
+        !!oneWork.description &&
+          quill &&
+          quill.setContents(JSON.parse(oneWork.description));
+    }
     } else {
       setForm(initialForm);
       setLabels([]);
@@ -104,7 +107,7 @@ export default function OurWorksForm() {
     setImage([]);
     setLabels([]);
     dispatch(clearOneWork());
-    navigate("/panel-admin");
+    navigate(-1);
   };
 
   // Función para agregar etiquetas
@@ -136,7 +139,7 @@ export default function OurWorksForm() {
       resetHandler();
       setImage([]);
       setLabels([]);
-      navigate("/panel-admin");
+      navigate(-1);
     }
   };
 

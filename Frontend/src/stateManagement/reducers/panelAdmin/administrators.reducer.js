@@ -103,10 +103,10 @@ export default function administratorsReducer(state = initialState, action) {
       };
     case DELETE_ADMINISTRATOR: // Delete
       const deletedAllAdministrator = state.allAdministrators.filter(
-        (admin) => admin._id !== payload
+        (admin) => admin.id !== payload
       );
       const deletedAdministrator = state.administrators.filter(
-        (admin) => admin._id !== payload
+        (admin) => admin.id !== payload
       );
       return {
         ...state,

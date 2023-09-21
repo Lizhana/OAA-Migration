@@ -130,10 +130,10 @@ export default function radioProgramReducer(state = initialState, action) {
       reactiveRadioProgram && (reactiveRadioProgram.isDeleted = false);
     case DELETE_RADIO_PROGRAM: // Delete
       const deletedAllRadio = state.allRadioPrograms.filter(
-        (admin) => admin._id !== payload
+        (admin) => admin.id !== payload
       );
       const deletedRadio = state.radioProgram.filter(
-        (admin) => admin._id !== payload
+        (admin) => admin.id !== payload
       );
       return {
         ...state,

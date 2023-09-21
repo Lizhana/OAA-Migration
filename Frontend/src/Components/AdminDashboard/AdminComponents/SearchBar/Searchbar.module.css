@@ -1,0 +1,51 @@
+.Container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.Container span {
+  font-weight: bold;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+
+.Container select {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: var(--blue);
+}
+
+.SearchBar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--blue);
+}
+
+.Container input {
+  outline: none;
+  font-size: 1.5rem;
+  color: var(--blue);
+  background-color: transparent;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.Container input::placeholder {
+  color: var(--blue);
+}
+
+.Container button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  height: 100%;
+}
+
+.Container button img {
+  width: fit-content;
+  height: 1.5rem;
+}
+

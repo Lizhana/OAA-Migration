@@ -9,6 +9,7 @@ import linkedin_logo from  "../../assets/social-media/linkedin.svg";
 import whatsapp_logo from  "../../assets/social-media/whatsapp.svg";
 import telegram_logo from  "../../assets/social-media/telegram.svg";
 import arrowWhite from "../../assets/arrow-white.png";
+import {syncCurrentState} from "../../stateManagement/actions/panelAdmin/currentWorkingState.actions";
 
 export default function Gallery() {
   const dispatch = useDispatch();
@@ -41,10 +42,10 @@ export default function Gallery() {
   return (
     <div className={style.Carousel}>
       <ul>
-        <button className={style.Next} name="next" onClick={handleClick}>
+        <button type="button" className={style.Next} name="next" onClick={handleClick}>
           <img src={arrowWhite} alt="" className={style.NextArrow}/>
         </button>
-        <button className={style.Prev} name="prev" onClick={handleClick}>
+        <button type="button" className={style.Prev} name="prev" onClick={handleClick}>
           <img src={arrowWhite} alt="" className={style.PrevArrow}/>
 
         </button>

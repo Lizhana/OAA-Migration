@@ -1,0 +1,107 @@
+.BGContainer h1 {
+  background-color: var(--blue);
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.MainContainer {
+  display: block;
+  margin: 0 auto;
+  width: clamp(50rem, 50% + 10rem, 150rem);
+}
+
+.MainContainer form > div {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+}
+
+.MainContainer input {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border: 2px solid var(--blue) ;
+  height: 2.6rem;
+  margin-bottom: .3rem;
+  padding-left: 8px;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+}
+
+.MainContainer select {
+  width: 100%;
+  height: 2.5rem;
+  display: block;
+  background: transparent;
+  border: 2px solid var(--blue) ;
+  padding-left: 3px;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+}
+
+.MainContainer span {
+  color: red;
+}
+
+.MainContainer textarea {
+  height: 10rem;
+  border-radius: var(--border-radius);
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+
+.ButtonContainer button {
+  background-color: var(--dark-green);
+  color: white;
+  border-radius: var(--border-radius);
+  height: 3rem;
+  width: 10rem;
+  font-weight: bold;
+  font-size: max(1.25rem, 1.25vw);
+  cursor: pointer;
+}
+
+.ButtonContainer button:first-child {
+  background-color: var(--blue); 
+  margin-right: 1rem;
+}
+
+.LabelContainer {
+  display: flex;
+  box-sizing: border-box;
+  height: 2.5rem;
+  gap: 1rem;
+}
+
+.LabelContainer button {
+  background-color: var(--yellow);
+  color: var(--blue);
+  font-weight: bold;
+  font-size:  max(1.25rem, 1.25vw);
+  width: 10rem;
+  border-radius: var(--border-radius);
+}
+
+.LabelsContainer {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.LabelsContainer button {
+  background-color: var(--blue);
+  color: white;
+  height: 2rem;
+  width: fit-content;
+  padding: 0 1.5rem;
+  border-radius: .3rem;
+  margin-bottom: .7rem;
+}
