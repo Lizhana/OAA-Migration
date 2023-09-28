@@ -89,10 +89,10 @@ export default function subscriptionsReducer(state = initialState, action) {
       };
     case DELETE_SUBSCRIPTION: // Delete
       const deletedAllSubscriptions = state.allSubscriptions.filter(
-        (admin) => admin._id !== payload
+        (admin) => admin.id !== payload
       );
       const deletedSubscriptions = state.subscriptions.filter(
-        (admin) => admin._id !== payload
+        (admin) => admin.id !== payload
       );
       return {
         ...state,

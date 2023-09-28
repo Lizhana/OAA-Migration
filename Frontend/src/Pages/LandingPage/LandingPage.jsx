@@ -1,4 +1,3 @@
-import { Toaster } from "sonner";
 import Hero from "../../Components/LandingPage/Hero/Hero";
 import PresentationIcons from "../../Components/LandingPage/PresentationIcons/PresentationIcons";
 import Communities from "../../Components/LandingPage/Communities/Communities";
@@ -13,7 +12,6 @@ export default function LandingPage() {
   return (
     <> 
       <Newsletter />
-      <Toaster richColors closeButton position="top-right" />
       <Hero />
       <PresentationIcons />
       <Communities />

@@ -56,22 +56,25 @@ export default function RadioProgramForm() {
   //Se ejecuta cuando oneRadioProgram cambia
   useEffect(() => {
     if (Object.keys(oneRadioProgram).length > 0 && edit) {
-      const pdfRadio = oneRadioProgram.multimedia.filter(
-        (file) => file.type === "PDF"
-      );
-      const audioRadio = oneRadioProgram.multimedia.filter(
-        (file) => file.type === "Audio"
-      );
-      setForm({
-        ...form,
-        titleMain: oneRadioProgram.titleMain,
-        date: oneRadioProgram.date,
-        introduction: oneRadioProgram.introduction,
-      });
-      setLabels(oneRadioProgram.labels);
-      setImage(oneRadioProgram.image);
-      setPdf(pdfRadio);
-      setAudio([oneRadioProgram.audio[0], ...audioRadio]);
+      if (Array.isArray(oneRadioProgram.multimedia)) {
+
+        const pdfRadio = oneRadioProgram.multimedia.filter(
+          (file) => file.type === "PDF"
+        );
+        const audioRadio = oneRadioProgram.multimedia.filter(
+          (file) => file.type === "Audio"
+        );
+        setForm({
+          ...form,
+          titleMain: oneRadioProgram.titleMain,
+          date: oneRadioProgram.date,
+          introduction: oneRadioProgram.introduction,
+        });
+        setLabels(oneRadioProgram.labels);
+        setImage(oneRadioProgram.image);
+        setPdf(pdfRadio);
+        setAudio([oneRadioProgram.audio[0], ...audioRadio]);
+      }
     } else {
       setForm(initialForm);
       setLabels([]);
@@ -88,7 +91,7 @@ export default function RadioProgramForm() {
     setImage([]);
     setLabels([]);
     dispatch(clearOneRadioProgram());
-    navigate("/panel-admin");
+    navigate(-1);
   };
 
   // Función para agregar etiquetas
@@ -120,7 +123,7 @@ export default function RadioProgramForm() {
       resetHandler();
       setImage([]);
       setLabels([]);
-      navigate("/panel-admin");
+      navigate(-1);
     }
   };
 

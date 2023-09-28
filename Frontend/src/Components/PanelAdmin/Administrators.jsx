@@ -26,6 +26,7 @@ const initialForm = {
 };
 
 export default function Administrators() {
+
   //variables de estados y formularios
   const dispatch = useDispatch(),
     [edit, setEdit] = useState(false),

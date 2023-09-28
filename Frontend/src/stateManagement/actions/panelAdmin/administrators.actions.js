@@ -143,6 +143,7 @@ export const editAdministrator = (id, { name, email }) => {
 export const deleteAdministrator = (id) => {
   return function (dispatch) {
     dispatch({ type: LOADER_ON });
+    console.log("hola")
     axios
       .delete(`/admin/${id}`)
       .then(() => {

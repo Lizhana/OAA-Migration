@@ -11,6 +11,7 @@ import radioProgramReducer from "./panelAdmin/radioProgram.reducer";
 import subscriptionsReducer from "./panelAdmin/subscriptions.reducer";
 import newsDetailReducer from "../reducers/newsDetail/newsDetailReducer";
 import ourWorksReducer from "./panelAdmin/ourWorks.reducer";
+import currentWorkingState from "./panelAdmin/currentWorkingState.reducer";
 
 const reducer = combineReducers({
   admin: adminReducer,
@@ -26,6 +27,7 @@ const reducer = combineReducers({
   subscriptions: subscriptionsReducer,
   UserIncription: newsReducer,
   newsDetail: newsDetailReducer,
+  currentWorkingState: currentWorkingState
 });
 
 export default reducer;

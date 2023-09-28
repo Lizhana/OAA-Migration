@@ -85,7 +85,7 @@ export default function GalleryImageForm() {
     setImage([]);
     setLabels([]);
     dispatch(clearOneGallery());
-    navigate("/panel-admin");
+    navigate(-1);
   };
 
   // Función para agregar etiquetas
@@ -115,7 +115,7 @@ export default function GalleryImageForm() {
       resetHandler();
       setImage([]);
       setLabels([]);
-      navigate("/panel-admin");
+      navigate(-1);
     }
   };
 
@@ -137,7 +137,7 @@ export default function GalleryImageForm() {
       resetHandler();
       setImage([]);
       setLabels([]);
-      navigate("/panel-admin");
+      navigate(-1);
     }
   };
 

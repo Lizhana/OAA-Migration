@@ -77,127 +77,127 @@ export default function Publications() {
     return (
       !publication.isDeleted &&
       createdAt.getMonth() === today.getMonth() &&
-      createdAt.getFullYear() === today.getFullYear()
-    );
-  });
-  const lastMonthPublications = allNews.filter((publication) => {
-    const createdAt = new Date(publication.createdAt);
-    return (
-      !publication.isDeleted &&
-      createdAt.getMonth() === lastMonth.getMonth() &&
-      createdAt.getFullYear() === lastMonth.getFullYear()
-    );
-  });
+    createdAt.getFullYear() === today.getFullYear()
+  );
+});
+const lastMonthPublications = allNews.filter((publication) => {
+  const createdAt = new Date(publication.createdAt);
+  return (
+    !publication.isDeleted &&
+    createdAt.getMonth() === lastMonth.getMonth() &&
+    createdAt.getFullYear() === lastMonth.getFullYear()
+  );
+});
 
-  // Se ejecuta cuando se monta el componente
-  useEffect(() => {
-    dispatch(getAllNews());
-  }, []);
+// Se ejecuta cuando se monta el componente
+useEffect(() => {
+  dispatch(getAllNews());
+}, []);
 
-  // Se ejecuta cuando status cambia
-  useEffect(() => {
+// Se ejecuta cuando status cambia
+useEffect(() => {
+  dispatch(
+    newsFilters({
+      ...filters,
+      status,
+    })
+  );
+}, [status]);
+
+// Funciones de filtrado:
+const orderDateHandler = (event) => {
+  event.preventDefault();
+  if (filters.order === "latest") {
     dispatch(
       newsFilters({
         ...filters,
-        status,
+        order: "oldest",
       })
     );
-  }, [status]);
-
-  // Funciones de filtrado:
-  const orderDateHandler = (event) => {
-    event.preventDefault();
-    if (filters.order === "latest") {
-      dispatch(
-        newsFilters({
-          ...filters,
-          order: "oldest",
-        })
-      );
-    } else {
-      dispatch(
-        newsFilters({
-          ...filters,
-          order: "latest",
-        })
-      );
-    }
-  };
-  const orderTitleHandler = (event) => {
-    event.preventDefault();
-    if (filters.order === "a-z") {
-      dispatch(
-        newsFilters({
-          ...filters,
-          order: "z-a",
-        })
-      );
-    } else {
-      dispatch(
-        newsFilters({
-          ...filters,
-          order: "a-z",
-        })
-      );
-    }
-  };
-  const categoryHandler = (event) => {
-    event.preventDefault();
-    if (filters.category === "all") {
-      dispatch(
-        newsFilters({
-          ...filters,
-          category: "Novedades",
-        })
-      );
-    } else if (filters.category === "Novedades") {
-      dispatch(
-        newsFilters({
-          ...filters,
-          category: "Comunidades",
-        })
-      );
-    } else if (filters.category === "Comunidades") {
-      dispatch(
-        newsFilters({
-          ...filters,
-          category: "Agroecología",
-        })
-      );
-    } else if (filters.category === "Agroecología") {
-      dispatch(
-        newsFilters({
-          ...filters,
-          category: "all",
-        })
-      );
-    }
-  };
-  const searchHandler = (event) => {
-    event.preventDefault();
+  } else {
     dispatch(
       newsFilters({
         ...filters,
-        search,
+        order: "latest",
       })
     );
-  };
-  const clearHandler = (event) => {
-    event.preventDefault();
+  }
+};
+const orderTitleHandler = (event) => {
+  event.preventDefault();
+  if (filters.order === "a-z") {
     dispatch(
       newsFilters({
         ...filters,
-        search: false,
+        order: "z-a",
       })
     );
-    resetHandler();
-  };
+  } else {
+    dispatch(
+      newsFilters({
+        ...filters,
+        order: "a-z",
+      })
+    );
+  }
+};
+const categoryHandler = (event) => {
+  event.preventDefault();
+  if (filters.category === "all") {
+    dispatch(
+      newsFilters({
+        ...filters,
+        category: "Novedades",
+      })
+    );
+  } else if (filters.category === "Novedades") {
+    dispatch(
+      newsFilters({
+        ...filters,
+        category: "Comunidades",
+      })
+    );
+  } else if (filters.category === "Comunidades") {
+    dispatch(
+      newsFilters({
+        ...filters,
+        category: "Agroecología",
+      })
+    );
+  } else if (filters.category === "Agroecología") {
+    dispatch(
+      newsFilters({
+        ...filters,
+        category: "all",
+      })
+    );
+  }
+};
+const searchHandler = (event) => {
+  event.preventDefault();
+  dispatch(
+    newsFilters({
+      ...filters,
+      search,
+    })
+  );
+};
+const clearHandler = (event) => {
+  event.preventDefault();
+  dispatch(
+    newsFilters({
+      ...filters,
+      search: false,
+    })
+  );
+  resetHandler();
+};
 
-  //Función para crear un elemento:
-  const createHandler = (event) => {
-    event.preventDefault();
-    dispatch(editNewForm(false));
-    navigate("/panel-admin/publications-form");
+//Función para crear un elemento:
+const createHandler = (event) => {
+  event.preventDefault();
+  dispatch(editNewForm(false));
+  navigate("/panel-admin/publications-form");
   };
 
   //Función para editar un elemento:

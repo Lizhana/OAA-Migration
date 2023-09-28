@@ -3,10 +3,11 @@
 /* LIGHT THEME */
 .paged {
   display: flex;
-  justify-content: end;
   align-items: center;
   margin-top: 1.5rem;
-  width: 100%;
+  margin-left: auto;
+  margin-right: 3rem;
+  width: 10rem;
 }
 .paged > * {
   font-size: 1.2rem;
@@ -21,13 +22,15 @@
 }
 .button-prev {
   border-radius: 50% 0 0 50%;
-  border: 0.15rem solid #1d649434;
+  border: 1px solid #1d649434;
   border-right: none;
+  height: 100%;
 }
 .button-next {
   border-radius: 0 50% 50% 0;
-  border: 0.15rem solid #1d649434;
+  border: 1px solid #1d649434;
   border-left: none;
+  height: 100%;
 }
 .text-container {
   display: flex;
@@ -37,6 +40,8 @@
   align-items: center;
   flex-wrap: wrap;
   border: 0.15rem solid #1d649434;
+  width: 10rem;
+  height: 3.2rem;
 }
 .text {
   cursor: default;
@@ -49,6 +54,7 @@
   padding: 0;
   padding-top: 0.3rem;
   text-align: center;
+  width: 3rem;
 }
 
 .paged input[type="number"]::-webkit-inner-spin-button,

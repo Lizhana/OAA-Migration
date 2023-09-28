@@ -1,7 +1,6 @@
 @import url("../../variables.css");
 
 .detail {
-  width: 75%;
   display: flex;
   flex-direction: column;
 }
@@ -30,21 +29,11 @@
   font-weight: bold;
 }
 
-
-.span-diva {
-  font-size: 1rem;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.divImageDetail {
-  margin-top: 1rem;
-  position: relative;
-}
-
 .divImageDetail {
   height: auto;
   max-width: 600px;
+  margin-top: 1rem;
+  position: relative;
 }
 
 .p-content {

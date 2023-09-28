@@ -138,18 +138,22 @@ export default function ourWorksReducer(state = initialState, action) {
       const reactiveWork = state.ourWorks.find((work) => work._id === payload);
       reactiveWork.isDeleted = false;
       return { ...state };
+
     case DELETE_WORK: // Delete
-      const deletedallOurWorks = state.allOurWorks.filter(
-        (work) => work._id !== payload
-      );
-      const deletedourWorks = state.ourWorks.filter(
-        (work) => work._id !== payload
-      );
-      return {
-        ...state,
-        allOurWorks: [...deletedallOurWorks],
-        ourWorks: [...deletedourWorks],
-      };
+      {
+        const deletedallOurWorks = state.allOurWorks.filter(
+          (work) => work.id !== payload
+        );
+        const deletedourWorks = state.ourWorks.filter(
+          (work) => work.id !== payload
+        );
+
+        return {
+          ...state,
+          allOurWorks: deletedallOurWorks,
+          ourWorks: deletedourWorks,
+        };
+      }
     default:
       return state;
   }

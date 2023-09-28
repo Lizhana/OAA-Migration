@@ -56,7 +56,7 @@ export default function PanelAdmin() {
           />
           <h1>Panel de Administrador</h1>
         </div>
-        <h3>Hola, {admin.name}</h3>
+        <h3>Hola</h3>
       </header>
       <nav className={`${styles["navbar"]}`}>
         <ul className={`${styles["ul-sections"]}`}>

@@ -6,10 +6,10 @@ export default function Pagination({
   currentPage,
   setCurrentPage,
 }) {
-  const prevPage = parseInt(currentPage) - 1,
-    nextPage = parseInt(currentPage) + 1,
-    firstPage = 1,
-    lastPage = Math.ceil(parseInt(numberOfItems) / parseInt(numberPerPage));
+  const prevPage = parseInt(currentPage) - 1;
+  const  nextPage = parseInt(currentPage) + 1;
+  const  firstPage = 1;
+  const lastPage = Math.ceil(parseInt(numberOfItems) / parseInt(numberPerPage));
 
   const clickHandler = (event) => {
     event.preventDefault();
@@ -32,16 +32,7 @@ export default function Pagination({
         </button>
       )}
       <div className={`${styles["text-container"]}`}>
-        <input
-          className={`${styles["number-input"]}`}
-          type='number'
-          name='currentPage'
-          value={currentPage}
-          min={1}
-          max={lastPage}
-          onChange={clickHandler}
-        />
-
+        <p className={`${styles["text"]}`}>{currentPage}</p>
         <p className={styles["text"]}>de</p>
         <p className={`${styles["text"]}`}>{lastPage}</p>
       </div>
