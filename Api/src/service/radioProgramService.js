@@ -4,7 +4,7 @@ const getRadioPrograms = async () => {
 
   try {
     const radioPrograms = await RadioPrograms.findAll();
-    return radioPrograms.reverse();
+    return radioPrograms;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;
@@ -185,7 +185,6 @@ const deleteRadioProgram = async (id) => {
 };
 
 module.exports = {
-  getRadioPrograms,
   getActiveRadioPrograms,
   getRadioProgramById,
   getActiveRadioProgramById,
@@ -194,5 +193,6 @@ module.exports = {
   deleteRadioProgram,
   updateRadioProgram,
   createRadioProgram,
-  getRadioProgramByTitle
+  getRadioProgramByTitle,
+  getRadioPrograms
 };

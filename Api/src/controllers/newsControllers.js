@@ -89,40 +89,8 @@ const getThreeNewsByCategory = async (req, res) => {
 };
 
 const postNews = async (req, res) => {
-  const {
-    titleMain,
-    date,
-    category,
-    author,
-    urlAuthor,
-    location,
-    introduction,
-    image,
-    description,
-    multimedia,
-    visitorCounter,
-    extraData,
-    labels,
-  } = req.body;
-
   try {
-    const newsData = {
-      titleMain,
-      date,
-      category,
-      author,
-      urlAuthor,
-      location,
-      introduction,
-      image,
-      description,
-      multimedia,
-      visitorCounter,
-      extraData,
-      labels,
-    };
-
-    const createdNews = await newsService.createNews(newsData);
+    const createdNews = await newsService.createNews(req.body);
 
     return res.status(200).json(createdNews);
   } catch (error) {
@@ -135,40 +103,9 @@ const postNews = async (req, res) => {
 
 const putNews = async (req, res) => {
   const { id } = req.params;
-  const {
-    titleMain,
-    date,
-    category,
-    author,
-    urlAuthor,
-    location,
-    introduction,
-    image,
-    description,
-    labels,
-    multimedia,
-    visitorCounter,
-    extraData,
-  } = req.body;
 
   try {
-    const newsData = {
-      titleMain,
-      date,
-      category,
-      author,
-      urlAuthor,
-      location,
-      introduction,
-      image,
-      description,
-      labels,
-      multimedia,
-      visitorCounter,
-      extraData,
-    };
-
-    const updatedNews = await newsService.updateNews(id, newsData);
+    const updatedNews = await newsService.updateNews(id, req.body);
 
     return res.status(200).json(updatedNews);
   } catch (error) {
@@ -184,7 +121,7 @@ const desactivateNews = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const deactivatedNews = await newsService.deactivateNews(id);
+    const deactivatedNews = await newsService.desactivateNews(id);
 
     return res.status(200).json({ message: "Noticia eliminada exitosamente" });
   } catch (error) {

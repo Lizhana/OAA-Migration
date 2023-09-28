@@ -13,7 +13,7 @@ newsRouter.get("/active/:id", news.getActiveNewsById); //----->  Traer a un dato
 
 newsRouter.get("/detail/:id", news.getNewsById); //----->  Traer a un dato
 
-newsRouter.get("/news/recent", news.getThreeNews); //---> Traer las 3 noticias mas recientes
+newsRouter.get("/recent", news.getThreeNews); //---> Traer las 3 noticias mas recientes
 
 newsRouter.get("/category/:category", news.getThreeNewsByCategory); //---> Traer 3 de la misma categoria
 
@@ -23,7 +23,7 @@ newsRouter.post("/", news.postNews); // ----> Crear un nuevo dato
 //----PUT *
 newsRouter.put("/detail/:id", news.putNews); //----->  Editar un archivo
 
-newsRouter.put("/deactivate/:id", news.desactivateNews); //----> Eliminar un archivo con borrado lógico
+newsRouter.put("/desactivate/:id", news.desactivateNews); //----> Eliminar un archivo con borrado lógico
 
 newsRouter.put("/activate/:id", news.activateNews); // --> Recuperar un archivo con borrado lógico
 

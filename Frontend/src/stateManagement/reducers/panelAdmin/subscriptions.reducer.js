@@ -4,10 +4,12 @@ import {
   DELETE_SUBSCRIPTION,
   ONE_SUBSCRIPTION,
   CLEAR_ONE_SUBSCRIPTION,
+  COUNT_SUBSCRIPTIONS,
 } from "../../types/panelAdmin";
 
 const initialState = {
   allSubscriptions: [],
+  countSubscriptions: 0,
   subscriptions: [],
   oneSubscriptor: {},
   idOneSubscriptor: null,
@@ -24,17 +26,26 @@ export default function subscriptionsReducer(state = initialState, action) {
     case SUBSCRIPTIONS: // Get
       return {
         ...state,
-        allSubscriptions: [...payload],
-        subscriptions: [...payload],
+        allSubscriptions: [...state.allSubscriptions, payload],
+        subscriptions: [...state.subscriptions, payload],
       };
+
+    case COUNT_SUBSCRIPTIONS: 
+      return {
+        ...state,
+        countSubscriptions: payload
+      };
+
     case ONE_SUBSCRIPTION: // Get ID
       return {
         ...state,
         oneSubscriptor: { ...payload },
         idOneSubscriptor: payload._id,
       };
+
     case CLEAR_ONE_SUBSCRIPTION: //Clear get ID
       return { ...state, oneSubscriptor: {} };
+
     case SUBSCRIPTIONS_FILTERS: // Filters
       const { order, search } = payload;
       let filteredSubscriptions = [...state.allSubscriptions];
