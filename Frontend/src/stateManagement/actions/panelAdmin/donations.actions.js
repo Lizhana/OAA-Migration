@@ -61,7 +61,7 @@ export const removeDonation = (id) => {
   return function (dispatch) {
     dispatch({ type: LOADER_ON });
     axios
-      .put(`/donations/deactivate/${id}`)
+      .put(`/donations/desactivate/${id}`)
       .then(() => {
         dispatch({ type: REMOVE_DONATION, payload: id });
       })

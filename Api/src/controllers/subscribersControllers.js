@@ -1,10 +1,6 @@
 const { Subscribers } = require("../db")
-const mailSettings = require("../utils/Nodemailer");
-const MailerLite = require("@mailerlite/mailerlite-nodejs").default;
-
-const mailerlite = new MailerLite({
-  api_key: process.env.MAILER_LITE_API_KEY
-});
+const mailSettings = require("../utils/nodemailer");
+const mailerlite = require("../utils/mailerlite");
 
 const getSubscribers = async (req, res) => {
   try {

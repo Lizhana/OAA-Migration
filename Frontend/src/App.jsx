@@ -9,6 +9,8 @@ import ActiveCases from "./Pages/ActiveCases/ActiveCases";
 import Communities from "./Pages/Communities/Communities";
 import Detail from "./Pages/Detail/Detail";
 import Done from "./Pages/Done/Done";
+import DonationSuccess from "./Pages/DonationSuccess/DonationSuccess";
+import DonationFailure from "./Pages/DonationFailure/DonationFailure";
 import Error404 from "./Pages/Error404/Error404";
 import Gallery from "./Pages/Gallery/Gallery";
 import Honorific from "./Pages/Honorific/Honorific";
@@ -32,7 +34,7 @@ import OurWorks from "./Components/AdminDashboard/AdminViews/OurWorks/OurWorks";
 import Radio from "./Components/AdminDashboard/AdminViews/Radio/Radio";
 import Admins from "./Components/AdminDashboard/AdminViews/Admins/Admins";
 
-axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
 
 function App() {
   const { pathname } = useLocation();
@@ -57,7 +59,9 @@ function App() {
         <Route path="/communities" element={<Communities />} />
         <Route path="/galeria" element={<Gallery />} />
         <Route path="/naturalezaSomos" element={<NaturalezaSomos />} />
-        <Route path="/done" element={<Done />} />
+        <Route path="/donaciones" element={<Done />} />
+        <Route path="/donacion-exitosa" element={<DonationSuccess />} />
+        <Route path="/donacion-fallida" element={<DonationFailure />} />
         <Route path="/activeCases" element={<ActiveCases />} />
         <Route path="/honorific" element={<Honorific />} />        
         <Route path="/noticia/:id" element={<Detail />} />
