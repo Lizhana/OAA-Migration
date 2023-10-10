@@ -51,27 +51,23 @@ export const getAllNews = () => {
 };
 
 export const getNewDetail = (id) => {
-  return function (dispatch) {
+  return async function (dispatch) {
     dispatch({ type: LOADER_ON });
-    axios
-      .get(`/news/detail/${id}`)
-      .then((res) => {
-        dispatch({ type: NEW_DETAIL, payload: res.data });
-      })
-      .then(() => {
-        dispatch({ type: LOADER_OFF });
-      })
-      .catch((error) => {
-        console.log("Error en news.actions: ", error);
-        dispatch({
-          type: NEW_MESSAGE,
-          payload: {
-            message: "Error al intentar obtener una noticia.",
-            state: "error",
-          },
-        });
-        dispatch({ type: LOADER_OFF });
+    try {
+      const { data } = await axios.get(`/news/detail/${id}`);
+      dispatch({ type: NEW_DETAIL, payload: data });
+    } catch (error) {
+      console.log("Error en news.actions: ", error);
+      dispatch({
+        type: NEW_MESSAGE,
+        payload: {
+          message: "Error al intentar obtener una noticia.",
+          state: "error",
+        },
       });
+    } finally {
+      dispatch({ type: LOADER_OFF });
+    }
   };
 };
 

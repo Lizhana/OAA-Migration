@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 
-
 module.exports =sequelize => { sequelize.define(
   "Donations",
   {
@@ -9,19 +8,25 @@ module.exports =sequelize => { sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    iso: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isIn: [["ARS", "USD"]],
-      },
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    extraData: {
-      type: DataTypes.STRING,
+    publicDonation: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     isDeleted: {
       type: DataTypes.BOOLEAN,

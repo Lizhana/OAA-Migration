@@ -19,7 +19,7 @@ galleryRouter.post("/", gallery.postGallery); // ----> Crear un nuevo dato
 //----PUT *
 galleryRouter.put("/detail/:id", gallery.putGallery); //----->  Editar un archivo
 
-galleryRouter.put("/deactivate/:id", gallery.desactivateGallery); //----> Eliminar un archivo con borrado lógico
+galleryRouter.put("/desactivate/:id", gallery.desactivateGallery); //----> Eliminar un archivo con borrado lógico
 
 galleryRouter.put("/activate/:id", gallery.activateGallery); // --> Recuperar un archivo con borrado lógico
 
