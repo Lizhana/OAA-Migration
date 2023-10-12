@@ -54,7 +54,7 @@ function App() {
       <Toaster richColors closeButton position="top-right" />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/nosotros" element={<AboutUs />} />
         <Route path="/novelties" element={<Novelties />} />
         <Route path="/communities" element={<Communities />} />
         <Route path="/galeria" element={<Gallery />} />
