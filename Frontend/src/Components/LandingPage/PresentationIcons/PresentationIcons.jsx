@@ -18,13 +18,13 @@ export default function PresentationIcons() {
           <img src={CasesIcon} alt='cases' className={styles.imgIcon}/>
         </div>
       </a>
-      <a href="/aboutUs" className={styles.contTeam}>
+      <a href="/nosotros" className={styles.contTeam}>
         <h2>Nuestro Equipo</h2>
         <div className={styles.contImg}>
           <img src={TeamIcon} alt='team' className={styles.imgIcon1}/>
         </div>
       </a>
-      <a href="/news" className={styles.contNews}>
+      <a href="/noticias" className={styles.contNews}>
         <h2>Noticias</h2>
         <div className={styles.contImg}>
           <img src={NewsIcon} alt='news' className={styles.imgIcon1}/>
