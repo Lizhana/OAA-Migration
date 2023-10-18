@@ -27,15 +27,9 @@ const getDonationById = async (req, res) => {
   }
 };
 
-const postDonation = async (req, res) => {
-  const { iso, amount, extraData } = req.body;
-
+const postOrder = async (req, res) => {
   try {
-    const createdDonation = await donationService.createDonation(
-      iso,
-      amount,
-      extraData
-    );
+    const createdDonation = await donationService.createOrder(req.body);
     return res.status(200).json(createdDonation);
   } catch (error) {
     console.error(error);
@@ -45,11 +39,23 @@ const postDonation = async (req, res) => {
   }
 };
 
-const deactivateDonation = async (req, res) => {
+const postDonation = async (req, res) => {
+  try {
+    const createdDonation = await donationService.createDonation(req.body);
+    return res.status(200).json(createdDonation);
+  } catch (error) {
+    console.error(error);
+    const status = error.status || 500;
+    const message = error.message || "Ocurrió un error al crear la donación.";
+    return res.status(status).json({ message });
+  }
+};
+
+const desactivateDonation = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const result = await donationService.deactivateDonation(id);
+    const result = await donationService.desactivateDonation(id);
     return res.status(200).json(result);
   } catch (error) {
     console.error(error);
@@ -92,8 +98,9 @@ const deleteDonation = async (req, res) => {
 module.exports = {
   getDonations,
   getDonationById,
+  postOrder,
   postDonation,
-  deactivateDonation,
+  desactivateDonation,
   activateDonation,
   deleteDonation,
 };

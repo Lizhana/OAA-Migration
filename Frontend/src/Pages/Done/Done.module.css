@@ -1,0 +1,91 @@
+.FormDone {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--white);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.InputDone {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.TitleDone {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+}
+
+.TextDone {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.LabelDone {
+  color: var(--black);
+  margin: 0;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.InputAmount {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.FormattedAmount {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #00a74a;
+  font-weight: bold;
+}
+
+.SelectCountry {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.SelectCountry option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+.SelectCountry:focus {
+  border-color: #119272;
+  outline: none;
+}
+
+
+.BtnDone {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #0a5c47;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.BtnDone:hover {
+  background-color: #0f8567;
+}

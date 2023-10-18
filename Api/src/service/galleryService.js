@@ -79,7 +79,7 @@ const createGallery = async (galleryData) => {
     if (existGallery) {
       throw {
         status: 409,
-        message: `La galería con el título: "${galleryData.titleMain}" ya existe`,
+        message: `La galería con el título: ${galleryData.titleMain} ya existe`,
       };
     }
 
@@ -178,7 +178,7 @@ const deleteGallery = async (id) => {
 
     await deletedGallery.destroy();
 
-    return;
+    return `La galería con id ${id} fue eliminada correctamente`;
   } catch (error) {
     console.error(error);
     const status = error.status || 500;

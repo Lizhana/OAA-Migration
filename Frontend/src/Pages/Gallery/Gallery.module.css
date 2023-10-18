@@ -1,107 +1,99 @@
 .Carousel {
-  height: 60vh;
-  width: 1000px;
-  position: relative;
-  box-sizing: border-box;
-  margin: 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 20%;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Carousel li{
-  list-style-type: none;
-}
-
-.Carousel h3 {
-text-align: end;
-  margin-bottom: 1rem;
-}
-
-.Carousel h1 {
-  text-align: center;
-}
-
-.Carousel li p {
-  margin-top: 1%;
-  text-align: start;
-  font-size: 1rem;
-  margin-bottom: 2rem;
+.Carousel * {
+  flex: none;
 }
 
 .Slide {
-  position: absolute;
-  inset: 0;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.Slide > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 15px;
-}
-
-.Slide > video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 15px;
+  max-width: 100%;
+  position: relative;
+  margin: 16px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .Slide.Active {
+  max-width: 100%;
+  display: flex;
   opacity: 1;
 }
-.Slide:not(.Active) {
-  opacity: 0;
+
+.Slide img,
+.Slide video {
+  width: 750px;
+  height: 500px;
+  border-radius: 16px;
 }
 
+.SlideTop {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.SlideTop h1, .SlideTop p {
+  color: #0C775D;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.SlideBottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 16px 16px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.Slide:hover .SlideBottom {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
 
 .Carousel button {
-  position: absolute;
-  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
   background-color: #2a9d8f;
   border-radius: 50%;
   font-weight: bold;
   font-size: 3.5rem;
-  top: 68%;
-  transform: translateY(-50%);
-  width: 4rem;
-  height: 4rem;
-  line-height: 4rem;
+  cursor: pointer;
 }
+
 .Carousel button:hover {
-  background-color:#83c5be;
+  background-color: #83c5be;
 }
 
 .NextArrow {
-  transform: rotate(-90deg);
-  height: 2.2rem;
-  padding-left: .4rem;
-  padding-top: .4rem;
+  width: 2.2rem;
+  transform: rotate(90deg);
 }
 
 .PrevArrow {
-  transform: rotate(90deg);
-  height: 2.2rem;
-  padding-right: .4rem;
-  padding-top: .4rem;
+  width: 2.2rem;
+  transform: rotate(-90deg);
 }
 
-.Prev {
-  left: 1rem;
-  cursor: pointer;
-}
-.Next {
-  right: 1rem;
-  cursor: pointer;
-}
-
-.SocialMediaContainer{
+.SocialMediaContainer {
   margin-top: 1rem;
   height: 4rem;
 }
@@ -111,19 +103,12 @@ text-align: end;
   cursor: pointer;
 }
 
-.LabelsContainer{
-  margin-bottom: 2rem;
-}
-
-.LabelsContainer span:first-child{
-  font-weight: bold;
-  margin-right: 1rem;
-
-}
-
-@media (max-width:1650px) {
-  .Carousel {
-    transform: scale(.9);
-
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0; 
+  }
+  to {
+    opacity: 1;
   }
 }

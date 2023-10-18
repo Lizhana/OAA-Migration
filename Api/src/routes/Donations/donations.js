@@ -10,10 +10,12 @@ donationsRouter.get("/", donations.getDonations); //----->  Traer a todos los da
 donationsRouter.get("/detail/:id", donations.getDonationById); //----->  Traer a un dato
 
 //----POST *
-donationsRouter.post("/", donations.postDonation); // ----> Crear un nuevo dato
+donationsRouter.post("/", donations.postOrder);
+
+donationsRouter.post("/success", donations.postDonation);
 
 //----PUT *
-donationsRouter.put("/deactivate/:id", donations.deactivateDonation); //----> Eliminar un archivo con borrado lógico
+donationsRouter.put("/desactivate/:id", donations.desactivateDonation); //----> Eliminar un archivo con borrado lógico
 
 donationsRouter.put("/activate/:id", donations.activateDonation); // --> Recuperar un archivo con borrado lógico
 

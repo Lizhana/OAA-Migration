@@ -15,39 +15,36 @@ import { NEW_MESSAGE } from "../../types/alerts";
 import { LOADER_OFF, LOADER_ON } from "../../types/loader";
 
 export const getGalleries = () => {
-  return function (dispatch) {
+  return async function (dispatch) {
     dispatch({ type: LOADER_ON });
-    axios
-      .get("/gallery")
-      .then((res) => {
-        dispatch({ type: GALLERY, payload: res.data });
-      })
-      .then(() => {
-        dispatch({
-          type: GALLERY_FILTERS,
-          payload: {
-            status: "active",
-            order: "latest",
-            category: "all",
-            search: false,
-          },
-        });
-      })
-      .then(() => {
-        dispatch({ type: LOADER_OFF });
-      })
-      .catch((error) => {
-        console.log("Error en gallery.actions: ", error);
-        dispatch({
-          type: NEW_MESSAGE,
-          payload: {
-            message:
-              "Ha ocurrido un error al intentar obtener los datos de la galería.",
-            state: "error",
-          },
-        });
-        dispatch({ type: LOADER_OFF });
+    
+    try {
+      const { data } = await axios.get("/gallery");
+      dispatch({ type: GALLERY, payload: data });
+
+      dispatch({
+        type: GALLERY_FILTERS,
+        payload: {
+          status: "active",
+          order: "latest",
+          category: "all",
+          search: false,
+        },
       });
+
+      dispatch({ type: LOADER_OFF });
+    } catch (error) {
+      console.log("Error en gallery.actions: ", error);
+      dispatch({
+        type: NEW_MESSAGE,
+        payload: {
+          message:
+            "Ha ocurrido un error al intentar obtener los datos de la galería.",
+          state: "error",
+        },
+      });
+      dispatch({ type: LOADER_OFF });
+    }
   };
 };
 

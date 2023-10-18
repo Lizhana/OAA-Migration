@@ -8,7 +8,7 @@ export default function Error404() {
 
   const homeHandler = (event) => {
     event.preventDefault();
-    navigate(`/home`);
+    navigate(`/`);
   };
   const backHandler = (event) => {
     event.preventDefault();
@@ -40,7 +40,7 @@ export default function Error404() {
             className={` button green-button ${styles["error-button"]}`}
             onClick={homeHandler}
           >
-            HOME
+            INICIO
           </button>
         </div>
       </section>

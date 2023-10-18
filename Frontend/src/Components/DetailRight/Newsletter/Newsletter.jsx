@@ -21,7 +21,7 @@ const DetailNewsletter = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const validationErrors = validateNewsletter(subscriber);
     setErrors(validationErrors);
